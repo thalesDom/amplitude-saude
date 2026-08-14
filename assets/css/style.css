@@ -391,7 +391,7 @@ body.is-loading{overflow:hidden;}
 .why-underline{display:block;width:130px;height:4px;border-radius:4px;background:var(--gold);margin-top:26px;}
 .why-intro{max-width:640px;margin:0 auto 40px;text-align:center;color:var(--muted);font-size:.9rem;line-height:1.6;}
 .why-intro br{content:'';display:block;margin-top:8px;}
-.why-closing{text-align:center;margin-top:26px;padding-top:40px;border-top:1px solid var(--line);}
+.why-closing{text-align:center;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);}
 .why-closing-mark{width:34px;height:34px;object-fit:contain;margin:0 auto 10px;}
 .why-closing-name{
   display:block;font-family:var(--ff-head);font-weight:700;
