@@ -378,18 +378,43 @@ body.is-loading{overflow:hidden;}
 .why-underline{display:block;width:130px;height:4px;border-radius:4px;background:var(--gold);margin-top:26px;}
 .why-intro{max-width:640px;margin:0 auto 40px;text-align:center;color:var(--muted);font-size:.9rem;line-height:1.6;}
 .why-intro br{content:'';display:block;margin-top:8px;}
-.why-closing{max-width:720px;margin:110px auto 0;text-align:center;padding-top:64px;position:relative;}
-.why-closing::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:3px;border-radius:4px;background:var(--grad-teal);}
-.why-closing h3{font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-600);margin-bottom:32px;}
-.why-closing-mark{width:88px;height:88px;object-fit:contain;margin:0 auto 20px;filter:drop-shadow(0 12px 22px rgba(22,191,178,.28));}
-.why-closing-name{display:block;font-family:var(--ff-head);font-weight:700;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin-bottom:22px;}
-.why-closing-tag{color:var(--muted);font-size:1.05rem;max-width:480px;margin:0 auto;}
-.why-closing-tag span{color:var(--teal-500);margin:0 6px;}
+.why-closing{margin-top:90px;}
+.why-closing-card{
+  position:relative;overflow:hidden;text-align:center;border-radius:var(--radius-lg);
+  padding:80px 40px;background:linear-gradient(120deg, var(--navy-900) 0%, var(--navy-700) 55%, var(--teal-600) 100%);
+  box-shadow:0 30px 60px rgba(12,26,43,.32);
+}
+.why-closing-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.14) 1.5px,transparent 1.5px);
+  background-size:24px 24px;mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+}
+.why-closing-blob{position:absolute;width:320px;height:320px;border-radius:50%;filter:blur(90px);pointer-events:none;}
+.why-closing-blob.b1{top:-120px;left:-60px;background:rgba(255,255,255,.14);}
+.why-closing-blob.b2{bottom:-140px;right:-80px;background:rgba(22,191,178,.4);}
+.why-closing-eyebrow{
+  position:relative;z-index:1;display:inline-block;font-size:.85rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:8px 20px;border-radius:var(--radius-full);margin-bottom:36px;
+}
+.why-closing-mark{
+  position:relative;z-index:1;width:100px;height:100px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 28px;box-shadow:0 16px 34px rgba(0,0,0,.25);
+}
+.why-closing-mark img{width:58px;height:58px;object-fit:contain;}
+.why-closing-name{
+  position:relative;z-index:1;display:block;font-family:var(--ff-head);font-weight:700;
+  font-size:clamp(2.6rem,5.5vw,4.2rem);line-height:1.05;letter-spacing:-.01em;color:#fff;margin-bottom:24px;
+}
+.why-closing-tag{position:relative;z-index:1;color:rgba(255,255,255,.85);font-size:1.15rem;max-width:520px;margin:0 auto;}
+.why-closing-tag span{color:var(--teal-300,#7EE8DC);margin:0 8px;}
 @media(max-width:600px){
-  .why-closing{margin-top:70px;padding-top:44px;}
-  .why-closing h3{margin-bottom:22px;}
-  .why-closing-mark{width:64px;height:64px;}
-  .why-closing-tag{font-size:.95rem;}
+  .why-closing{margin-top:60px;}
+  .why-closing-card{padding:56px 24px;}
+  .why-closing-eyebrow{margin-bottom:26px;}
+  .why-closing-mark{width:76px;height:76px;margin-bottom:20px;}
+  .why-closing-mark img{width:44px;height:44px;}
+  .why-closing-tag{font-size:1rem;}
 }
 @media(max-width:820px){
   .why-row,.why-row.reverse{grid-template-columns:1fr;gap:28px;}
@@ -409,8 +434,8 @@ body.is-loading{overflow:hidden;}
 .app-promo-copy h2{margin:14px 0 20px;}
 .app-promo-copy p{color:var(--muted);margin-bottom:16px;}
 .app-promo-download{
-  display:inline-flex;align-items:center;gap:8px;color:var(--teal-600);font-weight:600;font-size:.92rem;
-  margin-top:6px;padding-bottom:20px;border-bottom:1px solid var(--line);width:100%;
+  display:inline-flex;align-items:center;gap:8px;color:var(--teal-600);font-family:var(--ff-body);font-weight:600;font-size:.92rem;
+  margin-top:22px;padding-top:22px;border-top:1px solid var(--line);width:100%;
 }
 .app-promo-download:hover{color:var(--teal-700,var(--teal-600));}
 .app-promo-download .material-symbols-rounded{font-size:19px;}
