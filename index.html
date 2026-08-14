@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){var t=localStorage.getItem('amplitude-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+<title>Amplitude Saúde | Seu cuidado começa aqui</title>
+<meta name="description" content="Planos de saúde completos com atendimento humanizado, telemedicina 24h e a maior rede credenciada perto de você.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-50..200" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=31">
+<link rel="icon" type="image/png" href="assets/img/brand/logo-icon.png">
+</head>
+<body class="is-loading">
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-content">
+    <div class="preloader-mark"><img src="assets/img/brand/logo-icon.png" class="brand-mark" alt="Amplitude Saúde"></div>
+    <div class="preloader-text">Amplitude<em>Saúde</em></div>
+    <div class="preloader-bar"><span></span></div>
+  </div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Top utility bar -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:08001234567"><span class="material-symbols-rounded">call</span> 0800 123 4567</a>
+      <span class="divider"></span>
+      <span><span class="material-symbols-rounded">location_on</span> Sergipe</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">Portal do Beneficiário</a>
+      <a href="#">Portal do Corretor</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <img src="assets/img/brand/logo-lateral.png" class="brand-logo" alt="Amplitude Saúde">
+    </a>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#top" class="active">Início</a>
+      <a href="sobre-nos.html">Sobre Nós</a>
+      <a href="#rede">Rede Credenciada</a>
+      <a href="telemedicina.html">Telemedicina</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro">
+        <span class="material-symbols-rounded icon-dark">dark_mode</span>
+        <span class="material-symbols-rounded icon-light">light_mode</span>
+      </button>
+      <a href="#planos" class="btn btn-teal btn-sm">Venda Online</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="--g1:#0C1A2B;--g2:#0C1A2B" data-eyebrow="Desde 2001 cuidando de você" data-title="Seu cuidado começa aqui" data-sub="Planos completos para cuidar de toda a família. Atendimento humanizado e rede credenciada de excelência perto de você.">
+        <div class="hero-art has-photo"><img class="art-img" src="img/hero-familia.jpeg" alt="Família sorrindo em consulta médica"><div class="art-blob b1"></div><div class="art-blob b2"></div><div class="art-grid"></div><span class="material-symbols-rounded art-icon">favorite</span></div>
+      </div>
+      <div class="hero-slide" style="--g1:#0C1A2B;--g2:#0C1A2B" data-eyebrow="Planos para empresas" data-title="Mais saúde para sua empresa" data-sub="Gestão ativa de saúde, portal do RH e uma rede premium para cuidar do seu time todos os dias.">
+        <div class="hero-art has-photo"><img class="art-img" src="img/hero-empresa.jpeg" alt="Equipe corporativa reunida em escritório"><div class="art-blob b1"></div><div class="art-blob b2"></div><div class="art-grid"></div><span class="material-symbols-rounded art-icon">apartment</span></div>
+      </div>
+      <div class="hero-slide" style="--g1:#0C1A2B;--g2:#0C1A2B" data-eyebrow="Rede credenciada" data-title="De Sergipe para os sergipanos" data-sub="Cuidado que faz a diferença, em todo o estado.">
+        <div class="hero-art has-photo"><img class="art-img" src="img/hero-sergipe.jpeg" alt="Amplitude Saúde presente em todo o Sergipe"><div class="art-blob b1"></div><div class="art-blob b2"></div><div class="art-grid"></div><span class="material-symbols-rounded art-icon">hub</span></div>
+      </div>
+      <div class="hero-slide" style="--g1:#0C1A2B;--g2:#0C1A2B" data-eyebrow="Nossa sede" data-title="Aqui, seu cuidado tem endereço" data-sub="Estrutura própria, moderna e pensada para te acolher com todo o cuidado que você merece.">
+        <div class="hero-art has-photo"><img class="art-img" src="img/hero-sede.jpeg" alt="Sede da Amplitude Saúde em Aracaju"><div class="art-blob b1"></div><div class="art-blob b2"></div><div class="art-grid"></div><span class="material-symbols-rounded art-icon">domain</span></div>
+      </div>
+      <div class="hero-slide" style="--g1:#0C1A2B;--g2:#0C1A2B" data-eyebrow="Nossa equipe" data-title="Profissionais que cuidam de verdade" data-sub="Um time médico dedicado, humano e preparado para oferecer o melhor cuidado para você e sua família.">
+        <div class="hero-art has-photo"><img class="art-img" src="img/hero-equipe.jpeg" alt="Equipe médica da Amplitude Saúde"><div class="art-blob b1"></div><div class="art-blob b2"></div><div class="art-grid"></div><span class="material-symbols-rounded art-icon">groups</span></div>
+      </div>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow-pill" id="heroEyebrow"><span class="material-symbols-rounded" style="font-size:16px">favorite</span> Desde 2001 cuidando de você</span>
+        <h1 id="heroTitle">Seu cuidado começa aqui</h1>
+        <p class="hero-sub" id="heroSub">Planos completos para cuidar de toda a família. Atendimento humanizado e rede credenciada de excelência perto de você.</p>
+        <div class="hero-cta-row">
+          <a href="#planos" class="btn btn-teal btn-lg">Conheça nossos planos</a>
+          <div class="hero-counter">
+            <span id="heroCount">01/07</span>
+            <span class="track"><span id="heroTrack"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+
+  <!-- 3 FEATURES -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <a href="#rede" class="feature-card card-navy reveal">
+          <div class="feature-icon"><span class="material-symbols-rounded">add_circle</span></div>
+          <h3>Rede Credenciada</h3>
+          <p>Encontre hospitais, clínicas e laboratórios de excelência próximos a você com facilidade.</p>
+          <span class="feature-link">Buscar rede <span class="material-symbols-rounded">arrow_forward</span></span>
+        </a>
+        <a href="telemedicina.html" class="feature-card card-teal reveal">
+          <div class="feature-icon"><span class="material-symbols-rounded">videocam</span></div>
+          <h3>Telemedicina</h3>
+          <p>Atendimento médico online 24h por dia, 7 dias por semana, direto do seu smartphone.</p>
+          <span class="feature-link">Saiba mais <span class="material-symbols-rounded">arrow_forward</span></span>
+        </a>
+        <a href="#planos" class="feature-card card-white reveal">
+          <div class="feature-icon"><span class="material-symbols-rounded">assignment</span></div>
+          <h3>Nossos Planos</h3>
+          <p>Opções flexíveis para você, sua família ou sua empresa com o melhor custo-benefício.</p>
+          <span class="feature-link">Ver planos <span class="material-symbols-rounded">arrow_forward</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre">
+    <div class="container about-inner">
+      <div class="about-visual reveal-left">
+        <div class="about-photo">
+          <div class="photo-real">
+            <img src="img/about-enfermeira.jpeg" alt="Profissional da Amplitude Saúde sorrindo" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="about-copy reveal-right">
+        <span class="eyebrow">Conheça a Amplitude</span>
+        <h2>Qualidade e confiança em cada <span class="text-teal">atendimento</span></h2>
+        <p>A Amplitude Saúde nasceu para humanizar o cuidado médico através da tecnologia e da proximidade. Acreditamos que um plano de saúde deve fazer sentido no seu dia a dia — sem letras miúdas, sem burocracia, sem distância.</p>
+
+        <ul class="checklist">
+          <li><span class="material-symbols-rounded">check_circle</span> App completo com guias e autorizações digitais instantâneas</li>
+          <li><span class="material-symbols-rounded">check_circle</span> Resultados de exames e laudos direto no smartphone</li>
+          <li><span class="material-symbols-rounded">check_circle</span> Chat de atendimento direto e agendamento simplificado</li>
+        </ul>
+
+        <a href="sobre-nos.html" class="link-arrow">Nossa história <span class="material-symbols-rounded">arrow_forward</span></a>
+
+        <div class="about-stats">
+          <!-- <div class="about-stat"><strong>120k+</strong><span>Vidas protegidas</span></div> -->
+          <!-- <div class="about-stat"><strong>23</strong><span>Anos de história</span></div>
+          <div class="about-stat"><strong>4.9</strong><span>Avaliação média</span></div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">10 motivos</span>
+        <h2>10 motivos para escolher a <span class="text-teal">Amplitude Saúde</span></h2>
+        <p class="section-sub">Cuidado que faz a diferença começa com uma escolha.</p>
+      </div>
+
+      <div class="why-row reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&q=75" alt="Comunidade sergipana" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">01</span> Feita para Sergipe</h3>
+          <p>Conhecemos de perto a realidade da nossa região. Essa proximidade nos permite construir soluções pensadas para quem vive, trabalha e empreende em Sergipe.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reverse reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=75" alt="Recepção de rede credenciada" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">02</span> Rede credenciada estratégica e ampla</h3>
+          <p>Hospitais, clínicas, laboratórios e serviços de saúde selecionados para proporcionar acesso, qualidade e conveniência ao beneficiário em todo estado de Sergipe.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&q=75" alt="Atendimento humanizado" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">03</span> Atendimento próximo e humanizado</h3>
+          <p>Aqui, cada beneficiário importa. Trabalhamos para construir relações mais próximas, com atendimento que valoriza agilidade, atenção e respeito.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reverse reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=75" alt="Presença local" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">04</span> Presença local</h3>
+          <p>Uma operadora presente no mercado sergipano, próxima de beneficiários, empresas, corretores e prestadores. Porque estar perto também é uma forma de cuidar.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=75" alt="Parceria com empresas e organizações" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">05</span> Soluções para empresas, associações, sindicatos, órgãos públicos e projetos especiais</h3>
+          <p>Planos empresariais desenvolvidos para organizações que desejam oferecer saúde e segurança aos seus colaboradores e transformar o benefício em uma ferramenta de valorização de pessoas.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reverse reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&q=75" alt="Tecnologia a serviço da saúde" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">06</span> Tecnologia a serviço da saúde</h3>
+          <p>Utilizamos e investimos em recursos digitais para tornar a experiência mais simples, moderna e eficiente, facilitando a jornada do beneficiário e sua relação com o plano.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=75" alt="Equipe colaborando em diferentes perfis" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">07</span> Opções para diferentes perfis</h3>
+          <p>Cada empresa e cada beneficiário têm necessidades diferentes. Por isso, buscamos oferecer alternativas que permitam encontrar a combinação adequada entre cobertura, acomodação e características de contratação.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reverse reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1622902046580-2b47f47f5471?w=800&q=75" alt="Profissional da saúde regional" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">08</span> Valorização da saúde regional</h3>
+          <p>Acreditamos na força da medicina sergipana, com os bons profissionais e prestadores de mercado. Construir uma rede regional também significa fortalecer hospitais, clínicas, laboratórios e profissionais que fazem parte da saúde do nosso estado.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=75" alt="Estrutura moderna de atendimento" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">09</span> Uma nova experiência em plano de saúde</h3>
+          <p>Queremos ir além do modelo tradicional. A Amplitude Saúde busca unir proximidade, tecnologia, relacionamento e uma rede de cuidado capaz de acompanhar as novas necessidades dos beneficiários.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-row reverse reveal">
+        <div class="why-photo"><div class="photo-real"><img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=75" alt="Estrutura pronta para cuidar de você" loading="lazy"></div></div>
+        <div class="why-copy">
+          <h3><span class="why-num">10</span> Cuidado que faz a diferença</h3>
+          <p>Mais do que ter um plano, é importante sentir que existe uma estrutura preparada para cuidar de você quando precisar. Esse é o compromisso que queremos representar todos os dias.</p>
+          <span class="why-underline"></span>
+        </div>
+      </div>
+
+      <div class="why-closing reveal">
+        <h3>10 motivos. Uma escolha.</h3>
+        <div class="why-closing-brand">
+          <img src="assets/img/brand/logo-icon.png" alt="Amplitude Saúde">
+          <div>
+            <strong>Amplitude Saúde</strong>
+            <span>De Sergipe para os sergipanos.<br>Cuidado que faz a diferença.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <!-- APP PROMO -->
+  <section class="app-promo">
+    <div class="container app-promo-inner">
+      <div class="app-promo-visual reveal-left">
+        <img src="img/app-mockup.jpeg" alt="Aplicativo Amplitude Saúde aberto na tela de um celular">
+      </div>
+      <div class="app-promo-copy reveal-right">
+        <span class="eyebrow">O app Amplitude</span>
+        <h2>Conheça o <span class="text-teal">aplicativo</span> da Amplitude</h2>
+        <p>Criado para resolver suas maiores dificuldades com plano de saúde, o app Amplitude reúne tudo num só lugar: agendamento de consultas e exames, acesso a resultados e laudos, autorizações digitais instantâneas e acompanhamento de solicitações — sem burocracia e sem longas esperas.</p>
+        <p>Levamos o cuidado com você para onde você estiver, com a mesma praticidade que você já tem em outros apps do dia a dia. O futuro da saúde chegou — e já está no seu bolso.</p>
+        <div class="app-promo-stores">
+          <a href="#" class="store-badge">
+            <svg class="store-badge-icon" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            <span><small>Disponível na</small><strong>App Store</strong></span>
+          </a>
+          <a href="#" class="store-badge">
+            <svg class="store-badge-icon" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00D4FF" d="M99 48.7C91 55 86 65 86 78v356c0 13 5 23 13.3 29.3l211-211.5z"/><path fill="#00F076" d="M99 48.7L310 260 375 195z"/><path fill="#FF3A44" d="M99 463.3L375 325 310 260z"/><path fill="#FFCF00" d="M375 195l-65 65 65 65 88-44.4c22-11.2 22-40 0-51.2z"/></svg>
+            <span><small>Disponível no</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETWORK -->
+  <section class="network" id="rede">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Rede credenciada</span>
+        <h2>Referências médicas de Sergipe, agora <span class="text-teal">credenciadas à Amplitude</span></h2>
+      </div>
+    </div>
+
+    <div class="ticker-wrap reveal">
+      <div class="ticker" id="ticker">
+        <div class="ticker-card"><span class="material-symbols-rounded">radiology</span><h4>SOLIM Medicina Diagnóstica</h4><p>Diagnóstico por imagem</p></div>
+        <div class="ticker-card"><span class="material-symbols-rounded">biotech</span><h4>CLINRADI Imagem e Radioterapia</h4><p>RM · TC · PET-Scan · oncologia</p></div>
+        <div class="ticker-card"><span class="material-symbols-rounded">medical_services</span><h4>Clínica Endogastro</h4><p>Endoscopia e colonoscopia</p></div>
+        <div class="ticker-card"><span class="material-symbols-rounded">personal_injury</span><h4>Prontoclínica Ortopédica</h4><p>Ortopedia e traumatologia</p></div>
+        <div class="ticker-card"><span class="material-symbols-rounded">radiology</span><h4>SOLIM Medicina Diagnóstica</h4><p>Diagnóstico por imagem</p></div>
+        <div class="ticker-card"><span class="material-symbols-rounded">biotech</span><h4>CLINRADI Imagem e Radioterapia</h4><p>RM · TC · PET-Scan · oncologia</p></div>
+        <div class="ticker-card"><span class="material-symbols-rounded">medical_services</span><h4>Clínica Endogastro</h4><p>Endoscopia e colonoscopia</p></div>
+        <div class="ticker-card"><span class="material-symbols-rounded">personal_injury</span><h4>Prontoclínica Ortopédica</h4><p>Ortopedia e traumatologia</p></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="network-panel reveal">
+        <p class="network-hint">Atendimento disponível em diversas unidades:</p>
+        <div class="network-grid">
+          <div class="loc-list" id="locList"></div>
+          <div class="loc-detail" id="locDetail"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="planos">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Nossos planos</span>
+        <h2>Pronto para ter o melhor <span class="text-teal">plano de saúde</span>?</h2>
+        <p class="section-sub">Solicite uma cotação gratuita agora mesmo e descubra o plano perfeito para seu perfil.</p>
+      </div>
+
+      <div class="pricing-grid reveal">
+        <div class="price-card">
+          <div class="price-top"><div class="price-icon"><span class="material-symbols-rounded">person</span></div><span class="price-badge">Popular</span></div>
+          <h3>Individual</h3>
+          <p class="price-tag">Perfeito para quem busca segurança e autonomia.</p>
+          <ul class="price-list">
+            <li><span class="material-symbols-rounded ok">check_circle</span> Cobertura nacional</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Telemedicina 24h</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Sem coparticipação</li>
+            <li><span class="material-symbols-rounded no">do_not_disturb_on</span> Inclusão odonto opcional</li>
+          </ul>
+          <a href="#contato" class="btn btn-outline">Ver detalhes</a>
+        </div>
+
+        <div class="price-card featured">
+          <span class="ribbon">Mais escolhido</span>
+          <div class="price-top"><div class="price-icon"><span class="material-symbols-rounded">diversity_1</span></div></div>
+          <h3>Familiar</h3>
+          <p class="price-tag">Cuidado completo para quem você mais ama.</p>
+          <ul class="price-list">
+            <li><span class="material-symbols-rounded ok">check_circle</span> Tudo do Individual</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Desconto por dependente</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Inclusão odonto grátis</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Seguro viagem</li>
+          </ul>
+          <a href="#contato" class="btn btn-navy">Escolher plano</a>
+        </div>
+
+        <div class="price-card">
+          <div class="price-top"><div class="price-icon"><span class="material-symbols-rounded">apartment</span></div></div>
+          <h3>Empresarial</h3>
+          <p class="price-tag">Soluções sob medida para o seu negócio.</p>
+          <ul class="price-list">
+            <li><span class="material-symbols-rounded ok">check_circle</span> Gestão de saúde ativa</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Rede premium</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Portal RH dedicado</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Isenção total de carência</li>
+          </ul>
+          <a href="#contato" class="btn btn-teal">Solicitar cotação</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEAD STRIP -->
+  <section class="lead-strip" id="contato">
+    <div class="container">
+      <div class="lead-strip-inner reveal">
+        <div class="lead-strip-grid"></div>
+        <div class="lead-strip-blob"></div>
+        <h2>Deseja encontrar o plano ideal?</h2>
+        <form class="lead-form" id="leadForm" novalidate>
+          <input type="text" id="leadNome" name="nome" placeholder="Seu nome" required>
+          <input type="tel" id="leadWhats" name="whatsapp" placeholder="Seu WhatsApp" required>
+          <button type="submit" class="btn btn-teal">Enviar</button>
+        </form>
+        <p class="lead-form-success" id="leadFormSuccess">Recebemos seu contato! Nosso time responde em breve pelo WhatsApp. 🎉</p>
+      </div>
+    </div>
+  </section>
+
+
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <img src="assets/img/brand/logo-lateral.png" class="brand-logo brand-logo-light" alt="Amplitude Saúde">
+      </a>
+      <p>Oferecendo excelência em saúde suplementar com tecnologia, humanização e abrangência nacional desde 2001.</p>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><span class="material-symbols-rounded">thumb_up</span></a>
+        <a href="#" aria-label="Instagram"><span class="material-symbols-rounded">photo_camera</span></a>
+        <a href="#" aria-label="WhatsApp"><span class="material-symbols-rounded">chat</span></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Institucional</h4>
+      <a href="#">Quem Somos</a>
+      <a href="#">Rede de Atendimento</a>
+      <a href="#">Trabalhe Conosco</a>
+      <a href="#">Demonstrações Contábeis</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <a href="#">2ª Via de Boleto</a>
+      <a href="#">Extrato de Utilização</a>
+      <a href="#">Guia Médico Online</a>
+      <a href="#">Portal LGPD</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="mailto:contato@amplitudesaude.com.br" class="footer-contact-item"><span class="material-symbols-rounded">mail</span> contato@amplitudesaude.com.br</a>
+      <a href="tel:08001234567" class="footer-contact-item"><span class="material-symbols-rounded">call</span> SAC 0800 123 4567</a>
+      <span class="footer-contact-item"><span class="material-symbols-rounded">location_on</span> Rua Dr. Celso Oliva, 465, Treze de Julho, Aracaju–SE</span>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 Amplitude Saúde. Todos os direitos reservados.</span>
+      <div class="footer-legal">
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <span class="material-symbols-rounded">arrow_upward</span>
+</button>
+
+<!-- Cookie consent -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <span class="material-symbols-rounded cookie-icon">cookie</span>
+    <p>Usamos cookies para melhorar sua experiência, personalizar conteúdo e analisar o tráfego do site. Ao continuar navegando, você concorda com nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-outline btn-sm" id="cookieReject">Recusar</button>
+      <button class="btn btn-teal btn-sm" id="cookieAccept">Aceitar todos</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/script.js?v=8"></script>
+</body>
+</html>
