@@ -564,6 +564,7 @@ body.is-loading{overflow:hidden;}
 @media(max-width:600px){
   .lead-strip-inner{padding:40px 24px;}
   .lead-form{flex-direction:column;}
+  .lead-form input{flex:0 1 auto;width:100%;}
   .lead-form .btn{width:100%;}
 }
 
