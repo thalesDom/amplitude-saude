@@ -899,9 +899,9 @@ body.is-loading{overflow:hidden;}
 
 /* ===================== COOKIE BANNER ===================== */
 .cookie-banner{
-  position:fixed;left:24px;right:24px;bottom:24px;z-index:9500;max-width:720px;margin:0 auto;
-  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
-  padding:22px 26px;transform:translateY(140%);opacity:0;transition:.5s cubic-bezier(.2,.8,.2,1);
+  position:fixed;left:0;right:0;bottom:0;z-index:9500;max-width:100%;margin:0 auto;
+  background:var(--bg);border-top:1px solid var(--line);box-shadow:var(--shadow-lg);
+  padding:18px 26px;transform:translateY(140%);opacity:0;transition:.5s cubic-bezier(.2,.8,.2,1);
 }
 .cookie-banner.show{transform:translateY(0);opacity:1;}
 .cookie-inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
@@ -913,7 +913,7 @@ body.is-loading{overflow:hidden;}
 .cookie-inner p a{color:var(--teal-600);font-weight:600;}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0;}
 @media(max-width:560px){
-  .cookie-banner{left:10px;right:10px;bottom:10px;padding:14px;}
+  .cookie-banner{left:0;right:0;bottom:0;padding:14px;}
   .cookie-icon{width:34px;height:34px;font-size:18px;}
   .cookie-inner p{font-size:.78rem;line-height:1.45;}
   .cookie-actions{width:100%;}
