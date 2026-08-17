@@ -178,7 +178,7 @@ body.is-loading{overflow:hidden;}
 .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* ===================== HERO ===================== */
-.hero{position:relative;z-index:4;width:100%;aspect-ratio:1600/744;max-height:820px;min-height:480px;overflow:hidden;background:var(--navy-900);}
+.hero{position:relative;z-index:4;width:100%;aspect-ratio:1600/744;max-height:900px;min-height:480px;overflow:hidden;background:var(--navy-900);}
 .hero-slides{position:absolute;inset:0;}
 .hero-slide{
   position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.1s ease;
