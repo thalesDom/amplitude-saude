@@ -42,6 +42,7 @@
     </nav>
 
     <div class="nav-actions">
+      <button class="btn btn-outline btn-sm" id="loginTrigger">Login</button>
       <a href="#planos" class="btn btn-teal btn-sm">Venda Online</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu">
         <span></span><span></span><span></span>
@@ -472,6 +473,22 @@
   </div>
 </div>
 
-<script src="assets/js/script.js?v=10"></script>
+<!-- Login modal -->
+<div class="login-modal" id="loginModal">
+  <div class="login-modal-overlay" id="loginModalOverlay"></div>
+  <div class="login-modal-card">
+    <button class="login-modal-close" id="loginModalClose" aria-label="Fechar"><span class="material-symbols-rounded">close</span></button>
+    <h3>Login</h3>
+    <nav class="login-modal-links">
+      <a href="#">Para empresas</a>
+      <a href="#">Para administradoras</a>
+      <a href="#">Para corretores</a>
+      <a href="#">Para prestadores</a>
+      <a href="#">Portal Beneficiários</a>
+    </nav>
+  </div>
+</div>
+
+<script src="assets/js/script.js?v=11"></script>
 </body>
 </html>

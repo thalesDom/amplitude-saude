@@ -49,6 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
   navOverlay.addEventListener('click', closeMenu);
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
+  /* ---------- Login modal ---------- */
+  const loginTrigger = document.getElementById('loginTrigger');
+  const loginModal = document.getElementById('loginModal');
+  if(loginTrigger && loginModal){
+    const loginModalOverlay = document.getElementById('loginModalOverlay');
+    const loginModalClose = document.getElementById('loginModalClose');
+    const openLogin = () => loginModal.classList.add('open');
+    const closeLogin = () => loginModal.classList.remove('open');
+    loginTrigger.addEventListener('click', openLogin);
+    loginModalOverlay.addEventListener('click', closeLogin);
+    loginModalClose.addEventListener('click', closeLogin);
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLogin(); });
+  }
+
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
   const revealObserver = new IntersectionObserver((entries) => {
