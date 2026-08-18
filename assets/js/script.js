@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const progress = document.getElementById('scrollProgress');
   const navbar = document.getElementById('navbar');
   const backToTop = document.getElementById('backToTop');
+  const themeToggleFloat = document.querySelector('.theme-toggle-float');
 
   function onScroll(){
     const h = document.documentElement;
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progress.style.width = scrolled + '%';
     navbar.classList.toggle('scrolled', h.scrollTop > 40);
     backToTop.classList.toggle('show', h.scrollTop > 600);
+    if(themeToggleFloat) themeToggleFloat.classList.toggle('show', h.scrollTop > 600);
   }
   document.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
