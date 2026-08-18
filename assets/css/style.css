@@ -392,7 +392,7 @@ body.is-loading{overflow:hidden;}
 .why-intro{max-width:640px;margin:0 auto 40px;text-align:center;color:var(--muted);font-size:.9rem;line-height:1.6;}
 .why-intro br{content:'';display:block;margin-top:8px;}
 .why-closing{text-align:center;max-width:520px;margin:56px auto 0;padding-top:30px;border-top:1px solid var(--line);}
-.why-closing-eyebrow{display:block;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px;}
+.why-closing-eyebrow{display:block;font-family:var(--ff-head);font-size:.95rem;font-weight:700;letter-spacing:.04em;color:var(--teal-600);margin-bottom:14px;}
 .why-closing-mark{width:34px;height:34px;object-fit:contain;margin:0 auto 10px;}
 .why-closing-name{
   display:block;font-family:var(--ff-head);font-weight:700;
