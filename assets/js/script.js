@@ -17,13 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const progress = document.getElementById('scrollProgress');
   const navbar = document.getElementById('navbar');
   const backToTop = document.getElementById('backToTop');
+  const themeToggleFloat = document.querySelector('.theme-toggle-float');
 
   function onScroll(){
     const h = document.documentElement;
     const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
     progress.style.width = scrolled + '%';
     navbar.classList.toggle('scrolled', h.scrollTop > 40);
-    backToTop.classList.toggle('show', h.scrollTop > 600);
+    const backVisible = h.scrollTop > 600;
+    backToTop.classList.toggle('show', backVisible);
+    if(themeToggleFloat) themeToggleFloat.classList.toggle('up', backVisible);
   }
   document.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
