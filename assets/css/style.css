@@ -927,10 +927,23 @@ body.is-loading{overflow:hidden;}
 }
 
 .login-icon-btn{
-  width:38px;height:38px;flex-shrink:0;border-radius:11px;overflow:hidden;transition:.2s;
+  position:relative;width:42px;height:42px;flex-shrink:0;border-radius:13px;
+  box-shadow:0 6px 16px rgba(12,26,43,.3);
+  transition:.3s cubic-bezier(.2,.8,.2,1);
 }
-.login-icon-btn img{width:100%;height:100%;object-fit:contain;display:block;}
-.login-icon-btn:hover{transform:translateY(-2px);}
+.login-icon-btn::before{
+  content:'';position:absolute;inset:-6px;border-radius:17px;z-index:-1;
+  background:linear-gradient(135deg,var(--teal-400),var(--teal-600));
+  opacity:0;filter:blur(10px);transition:opacity .3s;
+  animation:loginPulse 2.6s ease-in-out infinite;
+}
+@keyframes loginPulse{
+  0%,100%{opacity:.18;}
+  50%{opacity:.5;}
+}
+.login-icon-btn img{width:100%;height:100%;object-fit:contain;display:block;border-radius:13px;position:relative;}
+.login-icon-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 10px 22px rgba(12,26,43,.4);}
+.login-icon-btn:hover::before{opacity:.85;animation-play-state:paused;}
 
 /* ===================== LOGIN MODAL ===================== */
 .login-modal{
