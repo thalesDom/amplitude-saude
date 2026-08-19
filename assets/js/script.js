@@ -63,6 +63,40 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLogin(); });
   }
 
+  /* ---------- Network ticker (auto-scroll + manual arrows) ---------- */
+  const ticker = document.getElementById('ticker');
+  const tickerPrev = document.getElementById('tickerPrev');
+  const tickerNext = document.getElementById('tickerNext');
+  if(ticker){
+    const tickerStep = 220;
+    let tickerTimer;
+    function tickerAuto(){
+      clearInterval(tickerTimer);
+      tickerTimer = setInterval(() => {
+        if(ticker.scrollLeft >= ticker.scrollWidth / 2){
+          ticker.scrollLeft = 0;
+        } else {
+          ticker.scrollLeft += 1;
+        }
+      }, 20);
+    }
+    function tickerPause(){ clearInterval(tickerTimer); }
+    function tickerResumeSoon(){ clearTimeout(ticker._resumeT); ticker._resumeT = setTimeout(tickerAuto, 2500); }
+    ticker.addEventListener('mouseenter', tickerPause);
+    ticker.addEventListener('mouseleave', tickerAuto);
+    if(tickerPrev) tickerPrev.addEventListener('click', () => {
+      tickerPause();
+      ticker.scrollBy({left: -tickerStep, behavior:'smooth'});
+      tickerResumeSoon();
+    });
+    if(tickerNext) tickerNext.addEventListener('click', () => {
+      tickerPause();
+      ticker.scrollBy({left: tickerStep, behavior:'smooth'});
+      tickerResumeSoon();
+    });
+    tickerAuto();
+  }
+
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
   const revealObserver = new IntersectionObserver((entries) => {
