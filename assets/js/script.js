@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(ticker.scrollLeft >= ticker.scrollWidth / 2){
           ticker.scrollLeft = 0;
         } else {
-          ticker.scrollLeft += 1;
+          ticker.scrollLeft += 3;
         }
       }, 12);
     }
