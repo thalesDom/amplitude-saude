@@ -383,7 +383,6 @@ body.is-loading{overflow:hidden;}
 
 .why-photo{position:relative;}
 .why-photo .photo-real{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:16/9;}
-.why-photo .photo-real.photo-contain img{object-position:center 75%;}
 @media(max-width:820px){.why-photo .photo-real{aspect-ratio:16/10;}}
 
 .why-copy h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--ink);margin-bottom:14px;line-height:1.3;}
