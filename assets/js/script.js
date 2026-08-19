@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tickerNext = document.getElementById('tickerNext');
   if(ticker){
     const tickerStep = 220;
-    const tickerSpeed = 260; // px per second
+    const tickerSpeed = 45; // px per second
     let tickerRAF, tickerLastTs;
     function tickerAuto(){
       cancelAnimationFrame(tickerRAF);
