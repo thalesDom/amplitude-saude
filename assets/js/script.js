@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           ticker.scrollLeft += 1;
         }
-      }, 20);
+      }, 12);
     }
     function tickerPause(){ clearInterval(tickerTimer); }
     function tickerResumeSoon(){ clearTimeout(ticker._resumeT); ticker._resumeT = setTimeout(tickerAuto, 2500); }
