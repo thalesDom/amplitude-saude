@@ -69,18 +69,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const tickerNext = document.getElementById('tickerNext');
   if(ticker){
     const tickerStep = 220;
-    let tickerTimer;
+    const tickerSpeed = 260; // px per second
+    let tickerRAF, tickerLastTs;
     function tickerAuto(){
-      clearInterval(tickerTimer);
-      tickerTimer = setInterval(() => {
-        if(ticker.scrollLeft >= ticker.scrollWidth / 2){
-          ticker.scrollLeft = 0;
-        } else {
-          ticker.scrollLeft += 3;
+      cancelAnimationFrame(tickerRAF);
+      tickerLastTs = null;
+      const frame = (ts) => {
+        if(tickerLastTs !== null){
+          const dt = ts - tickerLastTs;
+          const half = ticker.scrollWidth / 2;
+          ticker.scrollLeft = (ticker.scrollLeft + (tickerSpeed * dt) / 1000) % half;
         }
-      }, 12);
+        tickerLastTs = ts;
+        tickerRAF = requestAnimationFrame(frame);
+      };
+      tickerRAF = requestAnimationFrame(frame);
     }
-    function tickerPause(){ clearInterval(tickerTimer); }
+    function tickerPause(){ cancelAnimationFrame(tickerRAF); tickerLastTs = null; }
     function tickerResumeSoon(){ clearTimeout(ticker._resumeT); ticker._resumeT = setTimeout(tickerAuto, 2500); }
     ticker.addEventListener('mouseenter', tickerPause);
     ticker.addEventListener('mouseleave', tickerAuto);
