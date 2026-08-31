@@ -691,6 +691,9 @@ body.is-loading{overflow:hidden;}
 }
 .socials a:hover{background:var(--grad-teal);border-color:transparent;transform:translateY(-4px);box-shadow:0 10px 22px rgba(22,191,178,.4);}
 .socials .material-symbols-rounded{font-size:18px;}
+.socials a{color:rgba(255,255,255,.85);}
+.socials a:hover{color:#fff;}
+.socials svg{width:18px;height:18px;}
 .ans-badge{
   display:inline-block;margin-top:20px;padding:6px 14px;
   background:#000;color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.02em;
