@@ -89,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function tickerResumeSoon(){ clearTimeout(ticker._resumeT); ticker._resumeT = setTimeout(tickerAuto, 2500); }
     ticker.addEventListener('mouseenter', tickerPause);
     ticker.addEventListener('mouseleave', tickerAuto);
+    ticker.addEventListener('touchstart', tickerPause, {passive:true});
+    ticker.addEventListener('touchend', tickerResumeSoon, {passive:true});
     if(tickerPrev) tickerPrev.addEventListener('click', () => {
       tickerPause();
       ticker.scrollBy({left: -tickerStep, behavior:'smooth'});
