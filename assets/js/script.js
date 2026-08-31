@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- Active nav on scroll ---------- */
-  const sections = ['top','sobre','planos','rede','telemedicina','faq'].map(id => document.getElementById(id)).filter(Boolean);
+  const sections = ['top','planos','rede','telemedicina','faq'].map(id => document.getElementById(id)).filter(Boolean);
   const navA = document.querySelectorAll('.nav-links a');
   const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
