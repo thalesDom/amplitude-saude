@@ -322,13 +322,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- Active nav on scroll ---------- */
-  const sections = ['top','planos','rede','telemedicina','faq'].map(id => document.getElementById(id)).filter(Boolean);
+  const sections = ['heroSection','sobre','planos','rede','telemedicina','faq'].map(id => document.getElementById(id)).filter(Boolean);
   const navA = document.querySelectorAll('.nav-links a');
+  const navHrefFor = id => id === 'sobre' ? 'sobre-nos.html' : id === 'heroSection' ? '#top' : ('#' + id);
   const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
-        const id = entry.target.id;
-        navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        const target = navHrefFor(entry.target.id);
+        navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === target));
       }
     });
   }, {rootMargin:'-40% 0px -55% 0px'});
