@@ -472,7 +472,7 @@ body.is-loading{overflow:hidden;}
 @keyframes ticker-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media(max-width:640px){
   .ticker-wrap{overflow:hidden;}
-  .ticker.ticker-css-anim{overflow:visible;animation:ticker-marquee 16s linear infinite;}
+  .ticker.ticker-css-anim{overflow:visible;width:max-content;animation:ticker-marquee 16s linear infinite;}
   .ticker.ticker-css-anim:active{animation-play-state:paused;}
 }
 
