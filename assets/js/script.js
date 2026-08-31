@@ -67,7 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const ticker = document.getElementById('ticker');
   const tickerPrev = document.getElementById('tickerPrev');
   const tickerNext = document.getElementById('tickerNext');
-  if(ticker){
+  if(ticker && window.matchMedia('(max-width:640px)').matches){
+    ticker.classList.add('ticker-css-anim');
+  } else if(ticker){
     const tickerStep = 220;
     const tickerSpeed = 45; // px per second
     let tickerRAF, tickerLastTs;

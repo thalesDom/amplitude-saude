@@ -469,6 +469,13 @@ body.is-loading{overflow:hidden;}
 .ticker-arrow-next{right:-8px;}
 @media(max-width:640px){.ticker-arrow{display:none;}}
 
+@keyframes ticker-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media(max-width:640px){
+  .ticker-wrap{overflow:hidden;}
+  .ticker.ticker-css-anim{overflow:visible;animation:ticker-marquee 16s linear infinite;}
+  .ticker.ticker-css-anim:active{animation-play-state:paused;}
+}
+
 .specialist-panel{margin-top:56px;}
 .specialist-title{text-align:center;font-family:var(--ff-head);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);margin-bottom:32px;}
 .specialist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
