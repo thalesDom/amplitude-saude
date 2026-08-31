@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <li><span class="material-symbols-rounded">biotech</span> <b>Coleta:</b> ${loc.coleta}</li>
       </ul>
       <div class="loc-map">
-        <iframe class="loc-map-frame" src="https://www.google.com/maps?q=${encodeURIComponent(loc.addr)}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa da unidade ${loc.name}"></iframe>
+        <span class="material-symbols-rounded loc-map-pin">location_on</span>
         <a href="${mapsUrl}" target="_blank" rel="noopener" class="btn btn-teal btn-sm loc-map-btn">Abrir no Maps <span class="material-symbols-rounded">open_in_new</span></a>
       </div>`;
   }
