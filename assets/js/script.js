@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <li><span class="material-symbols-rounded">biotech</span> <b>Coleta:</b> ${loc.coleta}</li>
       </ul>
       <div class="loc-map">
-        <span class="material-symbols-rounded loc-map-pin">location_on</span>
+        <img class="loc-map-photo" src="img/WhatsApp Image 2026-08-18 at 19.52.49.jpeg" alt="Unidade ${loc.name}">
         <a href="${mapsUrl}" target="_blank" rel="noopener" class="btn btn-teal btn-sm loc-map-btn">Abrir no Maps <span class="material-symbols-rounded">open_in_new</span></a>
       </div>`;
   }
