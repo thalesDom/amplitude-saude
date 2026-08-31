@@ -412,7 +412,7 @@ body.is-loading{overflow:hidden;}
 }
 
 /* ===================== APP PROMO ===================== */
-.app-promo{padding:100px 0;background:var(--bg-soft);overflow:hidden;}
+.app-promo{padding:100px 0;background:var(--bg);overflow:hidden;}
 .app-promo-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:center;}
 .app-promo-visual{position:relative;display:flex;justify-content:center;}
 .app-promo-visual img{
@@ -533,7 +533,7 @@ body.is-loading{overflow:hidden;}
 }
 
 /* ===================== PRICING ===================== */
-.pricing{padding:90px 0;background:var(--bg-soft);}
+.pricing{padding:90px 0;background:var(--bg);}
 .pricing-banner{
   background:var(--grad-navy);border-radius:var(--radius-lg);padding:44px 52px;display:flex;align-items:center;
   justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:70px;box-shadow:var(--shadow-navy);
