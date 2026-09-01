@@ -447,11 +447,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerAdminLink = document.getElementById('footerAdminLink');
   if(footerAdminLink){
     const adminUrl = window.AMPLITUDE_ADMIN_URL;
+    footerAdminLink.style.display = '';
     if(adminUrl && !adminUrl.includes('SEU-DOMINIO-AQUI')){
       footerAdminLink.href = adminUrl + '/login.php';
       footerAdminLink.target = '_blank';
       footerAdminLink.rel = 'noopener';
-      footerAdminLink.style.display = '';
     }
   }
 
