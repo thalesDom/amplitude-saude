@@ -443,6 +443,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {rootMargin:'-40% 0px -55% 0px'});
   sections.forEach(s => spyObserver.observe(s));
 
+  /* ---------- Link para a área restrita no rodapé ---------- */
+  const footerAdminLink = document.getElementById('footerAdminLink');
+  if(footerAdminLink){
+    const adminUrl = window.AMPLITUDE_ADMIN_URL;
+    if(adminUrl && !adminUrl.includes('SEU-DOMINIO-AQUI')){
+      footerAdminLink.href = adminUrl + '/login.php';
+      footerAdminLink.target = '_blank';
+      footerAdminLink.rel = 'noopener';
+      footerAdminLink.style.display = '';
+    }
+  }
+
   /* ---------- Theme toggle (dark/light) ---------- */
   const themeToggle = document.getElementById('themeToggle');
   if(themeToggle){
