@@ -67,44 +67,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const ticker = document.getElementById('ticker');
   const tickerPrev = document.getElementById('tickerPrev');
   const tickerNext = document.getElementById('tickerNext');
-  if(ticker && window.matchMedia('(max-width:640px)').matches){
-    ticker.classList.add('ticker-css-anim');
-  } else if(ticker){
-    const tickerStep = 220;
-    const tickerSpeed = 45; // px per second
-    let tickerRAF, tickerLastTs;
-    function tickerAuto(){
-      cancelAnimationFrame(tickerRAF);
-      tickerLastTs = null;
-      const frame = (ts) => {
-        if(tickerLastTs !== null){
-          const dt = ts - tickerLastTs;
-          const half = ticker.scrollWidth / 2;
-          ticker.scrollLeft = (ticker.scrollLeft + (tickerSpeed * dt) / 1000) % half;
-        }
-        tickerLastTs = ts;
-        tickerRAF = requestAnimationFrame(frame);
-      };
-      tickerRAF = requestAnimationFrame(frame);
-    }
-    function tickerPause(){ cancelAnimationFrame(tickerRAF); tickerLastTs = null; }
-    function tickerResumeSoon(){ clearTimeout(ticker._resumeT); ticker._resumeT = setTimeout(tickerAuto, 2500); }
-    ticker.addEventListener('mouseenter', tickerPause);
-    ticker.addEventListener('mouseleave', tickerAuto);
-    ticker.addEventListener('touchstart', tickerPause, {passive:true});
-    ticker.addEventListener('touchend', tickerResumeSoon, {passive:true});
-    if(tickerPrev) tickerPrev.addEventListener('click', () => {
-      tickerPause();
-      ticker.scrollBy({left: -tickerStep, behavior:'smooth'});
-      tickerResumeSoon();
-    });
-    if(tickerNext) tickerNext.addEventListener('click', () => {
-      tickerPause();
-      ticker.scrollBy({left: tickerStep, behavior:'smooth'});
-      tickerResumeSoon();
-    });
-    tickerAuto();
+
+  async function loadTickerFromAdmin(){
+    const adminUrl = window.AMPLITUDE_ADMIN_URL;
+    if(!ticker || !adminUrl || adminUrl.includes('SEU-DOMINIO-AQUI')) return;
+    try{
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 4000);
+      const res = await fetch(adminUrl + '/api/rede.php', {signal: controller.signal});
+      clearTimeout(timeout);
+      if(!res.ok) return;
+      const data = await res.json();
+      const parceiros = data.parceiros || [];
+      if(!parceiros.length) return;
+      const cardsHtml = parceiros.map(p => {
+        const href = p.link_url || '#';
+        return `<a class="ticker-card" href="${href}" target="_blank" rel="noopener"><img src="${p.logo_url}" alt="${p.nome.replace(/"/g,'&quot;')}"></a>`;
+      }).join('');
+      ticker.innerHTML = cardsHtml + cardsHtml; // duplica para o loop infinito
+    }catch(err){ /* mantém os logos fixos do HTML se a área restrita não responder */ }
   }
+  function setupTicker(){
+    if(ticker && window.matchMedia('(max-width:640px)').matches){
+      ticker.classList.add('ticker-css-anim');
+    } else if(ticker){
+      const tickerStep = 220;
+      const tickerSpeed = 45; // px per second
+      let tickerRAF, tickerLastTs;
+      function tickerAuto(){
+        cancelAnimationFrame(tickerRAF);
+        tickerLastTs = null;
+        const frame = (ts) => {
+          if(tickerLastTs !== null){
+            const dt = ts - tickerLastTs;
+            const half = ticker.scrollWidth / 2;
+            ticker.scrollLeft = (ticker.scrollLeft + (tickerSpeed * dt) / 1000) % half;
+          }
+          tickerLastTs = ts;
+          tickerRAF = requestAnimationFrame(frame);
+        };
+        tickerRAF = requestAnimationFrame(frame);
+      }
+      function tickerPause(){ cancelAnimationFrame(tickerRAF); tickerLastTs = null; }
+      function tickerResumeSoon(){ clearTimeout(ticker._resumeT); ticker._resumeT = setTimeout(tickerAuto, 2500); }
+      ticker.addEventListener('mouseenter', tickerPause);
+      ticker.addEventListener('mouseleave', tickerAuto);
+      ticker.addEventListener('touchstart', tickerPause, {passive:true});
+      ticker.addEventListener('touchend', tickerResumeSoon, {passive:true});
+      if(tickerPrev) tickerPrev.addEventListener('click', () => {
+        tickerPause();
+        ticker.scrollBy({left: -tickerStep, behavior:'smooth'});
+        tickerResumeSoon();
+      });
+      if(tickerNext) tickerNext.addEventListener('click', () => {
+        tickerPause();
+        ticker.scrollBy({left: tickerStep, behavior:'smooth'});
+        tickerResumeSoon();
+      });
+      tickerAuto();
+    }
+  }
+  loadTickerFromAdmin().finally(setupTicker);
 
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
@@ -281,24 +304,105 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
   if(form){
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if(!form.checkValidity()){ form.reportValidity(); return; }
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const adminUrl = window.AMPLITUDE_ADMIN_URL;
+      if(submitBtn) submitBtn.disabled = true;
+      try{
+        if(adminUrl && !adminUrl.includes('SEU-DOMINIO-AQUI')){
+          const fd = new FormData();
+          fd.append('nome', document.getElementById('cvNome').value.trim());
+          fd.append('email', document.getElementById('cvEmail').value.trim());
+          fd.append('whatsapp', document.getElementById('cvWhats').value.trim());
+          const vagaId = document.getElementById('cvVagaId').value;
+          if(vagaId) fd.append('vaga_id', vagaId);
+          const area = document.getElementById('cvArea').value;
+          const msg = document.getElementById('cvMsg').value.trim();
+          fd.append('mensagem', (area ? 'Área de interesse: ' + area + '. ' : '') + msg);
+          const fileInput = document.getElementById('cvCurriculo');
+          if(fileInput.files[0]) fd.append('curriculo', fileInput.files[0]);
+          await fetch(adminUrl + '/api/candidatura.php', {method: 'POST', body: fd});
+        }
+      }catch(err){ /* segue mostrando sucesso ao usuário mesmo se a área restrita estiver fora do ar */ }
       success.classList.add('show');
       form.reset();
+      document.getElementById('cvVagaId').value = '';
+      const vagaLabel = document.getElementById('cvVagaLabel');
+      if(vagaLabel) vagaLabel.style.display = 'none';
+      if(submitBtn) submitBtn.disabled = false;
       setTimeout(() => success.classList.remove('show'), 5000);
     });
+  }
+
+  /* ---------- Vagas abertas (Trabalhe Conosco) ---------- */
+  const vagasList = document.getElementById('vagasList');
+  if(vagasList){
+    (async () => {
+      const adminUrl = window.AMPLITUDE_ADMIN_URL;
+      if(!adminUrl || adminUrl.includes('SEU-DOMINIO-AQUI')){
+        vagasList.innerHTML = '<p class="empty-state">Nenhuma vaga aberta no momento. Envie seu currículo para o nosso banco de talentos abaixo.</p>';
+        return;
+      }
+      try{
+        const res = await fetch(adminUrl + '/api/vagas.php');
+        const data = await res.json();
+        const vagas = data.vagas || [];
+        if(!vagas.length){
+          vagasList.innerHTML = '<p class="empty-state">Nenhuma vaga aberta no momento. Envie seu currículo para o nosso banco de talentos abaixo.</p>';
+          return;
+        }
+        vagasList.innerHTML = vagas.map(v => `
+          <div class="vaga-card">
+            <div class="vaga-card-head">
+              <h3>${v.titulo}</h3>
+              <span class="vaga-tag">${v.tipo}</span>
+            </div>
+            <p class="vaga-meta"><span class="material-symbols-rounded">work</span> ${v.area} · <span class="material-symbols-rounded">location_on</span> ${v.local}</p>
+            <p>${v.descricao}</p>
+            <button type="button" class="btn btn-teal btn-sm vaga-candidatar" data-id="${v.id}" data-titulo="${v.titulo.replace(/"/g,'&quot;')}">Candidatar-se</button>
+          </div>
+        `).join('');
+        vagasList.querySelectorAll('.vaga-candidatar').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.getElementById('cvVagaId').value = btn.dataset.id;
+            const label = document.getElementById('cvVagaLabel');
+            label.textContent = 'Você está se candidatando para: ' + btn.dataset.titulo;
+            label.style.display = 'block';
+            document.getElementById('candidatura').scrollIntoView({behavior:'smooth', block:'start'});
+          });
+        });
+      }catch(err){
+        vagasList.innerHTML = '<p class="empty-state">Nenhuma vaga aberta no momento. Envie seu currículo para o nosso banco de talentos abaixo.</p>';
+      }
+    })();
   }
 
   /* ---------- Lead strip form ---------- */
   const leadForm = document.getElementById('leadForm');
   const leadSuccess = document.getElementById('leadFormSuccess');
   if(leadForm){
-    leadForm.addEventListener('submit', (e) => {
+    leadForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       if(!leadForm.checkValidity()){ leadForm.reportValidity(); return; }
+      const submitBtn = leadForm.querySelector('button[type="submit"]');
+      const nome = document.getElementById('leadNome').value.trim();
+      const whatsapp = document.getElementById('leadWhats').value.trim();
+      const adminUrl = window.AMPLITUDE_ADMIN_URL;
+      if(submitBtn) submitBtn.disabled = true;
+      try{
+        if(adminUrl && !adminUrl.includes('SEU-DOMINIO-AQUI')){
+          await fetch(adminUrl + '/api/lead.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({nome, whatsapp})
+          });
+        }
+      }catch(err){ /* segue mostrando sucesso ao usuário mesmo se a área restrita estiver fora do ar */ }
       leadSuccess.classList.add('show');
       leadForm.reset();
+      if(submitBtn) submitBtn.disabled = false;
       setTimeout(() => leadSuccess.classList.remove('show'), 5000);
     });
   }

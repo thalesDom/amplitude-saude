@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-50..200" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=43">
+<link rel="stylesheet" href="assets/css/style.css?v=50">
 <link rel="icon" type="image/png" href="assets/img/brand/logo-icon.png">
 </head>
 <body class="is-loading">
@@ -172,6 +172,18 @@
     </div>
   </section>
 
+  <!-- VAGAS ABERTAS -->
+  <section class="trajectory" id="vagas-abertas">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Vagas abertas</span>
+        <h2>Oportunidades <span class="text-teal">disponíveis agora</span></h2>
+        <p class="section-sub">Se não encontrar nada aqui, envie seu currículo mesmo assim — guardamos no nosso banco de talentos.</p>
+      </div>
+      <div id="vagasList" class="vagas-list"></div>
+    </div>
+  </section>
+
   <!-- FORMULÁRIO -->
   <section class="contact" id="candidatura">
     <div class="container">
@@ -182,7 +194,9 @@
       </div>
 
       <div style="max-width:640px;margin:0 auto;">
-        <form class="contact-form reveal" id="contactForm" novalidate>
+        <form class="contact-form reveal" id="contactForm" enctype="multipart/form-data" novalidate>
+          <input type="hidden" id="cvVagaId" name="vaga_id" value="">
+          <p id="cvVagaLabel" class="form-vaga-label" style="display:none;"></p>
           <div class="form-row">
             <div class="field">
               <label for="cvNome">Nome completo</label>
@@ -213,8 +227,8 @@
             </div>
           </div>
           <div class="field">
-            <label for="cvLink">Link do currículo ou LinkedIn</label>
-            <input type="text" id="cvLink" name="link" placeholder="Cole aqui o link do seu currículo (Drive, LinkedIn, etc.)" required>
+            <label for="cvCurriculo">Currículo (PDF, DOC ou DOCX)</label>
+            <input type="file" id="cvCurriculo" name="curriculo" accept=".pdf,.doc,.docx" required>
           </div>
           <div class="field">
             <label for="cvMsg">Conte um pouco sobre você</label>
@@ -316,6 +330,7 @@
   </div>
 </div>
 
-<script src="assets/js/script.js?v=11"></script>
+<script src="assets/js/admin-config.js"></script>
+<script src="assets/js/script.js?v=18"></script>
 </body>
 </html>

@@ -3,3 +3,9 @@
 
 # Claude Code local settings
 .claude
+
+# Área restrita (PHP + MySQL): não faz sentido no GitHub Pages (que só serve
+# arquivos estáticos) e conteria credenciais/senha padrão se fosse publicada
+# num repositório público. Fica só localmente — envie para sua hospedagem via
+# FTP/cPanel, veja admin/LEIA-ME.txt.
+admin/
