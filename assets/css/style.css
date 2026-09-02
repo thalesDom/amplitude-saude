@@ -702,11 +702,12 @@ body.is-loading{overflow:hidden;}
 .socials a:hover{color:#fff;}
 .socials svg{width:18px;height:18px;}
 .ans-logo{
-  display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:8px 16px;
+  display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:10px 18px;
   background:#fff;border-radius:999px;
 }
-.ans-logo strong{display:block;color:#0B2340;font-family:'Fredoka',sans-serif;font-size:1.05rem;line-height:1.1;}
-.ans-logo span{display:block;color:#5b6b7a;font-size:.68rem;line-height:1.2;font-weight:600;}
+.ans-logo strong{color:#1B75BB;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:.02em;line-height:1;}
+.ans-logo strong em{color:#3AAA35;font-style:normal;}
+.ans-logo span{display:block;color:#5b6b7a;font-size:.66rem;line-height:1.25;font-weight:600;padding-left:10px;border-left:1px solid #dde3ea;}
 .ans-badge{
   display:inline-block;margin-top:10px;padding:6px 14px;
   background:#000;color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.02em;
