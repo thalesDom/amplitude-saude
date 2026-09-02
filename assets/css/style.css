@@ -701,8 +701,14 @@ body.is-loading{overflow:hidden;}
 .socials a{color:rgba(255,255,255,.85);}
 .socials a:hover{color:#fff;}
 .socials svg{width:18px;height:18px;}
+.ans-logo{
+  display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:8px 16px;
+  background:#fff;border-radius:999px;
+}
+.ans-logo strong{display:block;color:#0B2340;font-family:'Fredoka',sans-serif;font-size:1.05rem;line-height:1.1;}
+.ans-logo span{display:block;color:#5b6b7a;font-size:.68rem;line-height:1.2;font-weight:600;}
 .ans-badge{
-  display:inline-block;margin-top:20px;padding:6px 14px;
+  display:inline-block;margin-top:10px;padding:6px 14px;
   background:#000;color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.02em;
   border:1px solid #fff;box-shadow:0 0 0 3px #000;
 }
