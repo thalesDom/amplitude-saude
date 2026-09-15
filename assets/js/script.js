@@ -456,12 +456,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const clubeMarqueeTrack = document.getElementById('clubeMarqueeTrack');
   if(clubeMarqueeTrack){
     const parceiros = [
-      'Americanas','Magazine Luiza','Casas Bahia','Alimentação','Viagens e Turismo',
-      'Educação','Saúde e Bem-estar','Moda e Beleza','Tecnologia','Pet Shop',
-      'Cinema e Lazer','Farmácias'
+      ['carrefour','Carrefour'],['nike','Nike'],['magalu','Magazine Luiza'],['lojas-americanas','Lojas Americanas'],
+      ['casas-bahia','Casas Bahia'],['amazon','Amazon'],['latam','LATAM Airlines'],['natura','Natura'],
+      ['cea','C&A'],['rayban','Ray-Ban'],['sony','Sony'],['philips','Philips'],
+      ['levis',"Levi's"],['netshoes','Netshoes'],['centauro','Centauro'],['extra','Extra'],
+      ['fast-shop','Fast Shop'],['pague-menos','Pague Menos'],['cinemark','Cinemark'],['kinoplex','Kinoplex'],
+      ['cinepolis','Cinépolis'],['uci-cinemas','UCI Cinemas'],['cinesystem','Cinesystem'],['moviecom','Moviecom'],
+      ['imaginarium','Imaginarium'],['kipling','Kipling'],['polishop','Polishop'],['privalia','Privalia'],
+      ['movida','Movida Rent a Car']
     ];
-    const pillsHtml = parceiros.map(p => `<span class="clube-marquee-pill"><span class="material-symbols-rounded">sell</span>${p}</span>`).join('');
-    clubeMarqueeTrack.innerHTML = pillsHtml + pillsHtml;
+    const ext = { natura:'jpg', cineart:'jpg', 'lojas-americanas':'jpg', kinoplex:'jpg', amazon:'jpg', moviecom:'jpg', cinesystem:'jpg', rayban:'jpg', polishop:'jpg' };
+    const tilesHtml = parceiros.map(([slug, nome]) => {
+      const fileExt = ext[slug] || 'png';
+      return `<span class="clube-marquee-pill"><img src="img/clube-parceiros/${slug}.${fileExt}" alt="${nome}" loading="lazy"></span>`;
+    }).join('');
+    clubeMarqueeTrack.innerHTML = tilesHtml + tilesHtml;
   }
 
   /* ---------- Active nav on scroll ---------- */
