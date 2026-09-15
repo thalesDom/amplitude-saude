@@ -429,6 +429,41 @@ document.addEventListener('DOMContentLoaded', () => {
     statObserver.observe(communityStat);
   }
 
+  /* ---------- Generic count-up stats (data-count-to) ---------- */
+  document.querySelectorAll('[data-count-to]').forEach((el) => {
+    const target = parseFloat(el.dataset.countTo);
+    const suffix = el.dataset.suffix || '';
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          const start = performance.now();
+          function tick(now){
+            const p = Math.min((now - start) / 1400, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            const val = target * eased;
+            el.textContent = (Number.isInteger(target) ? Math.floor(val) : val.toFixed(1)) + suffix;
+            if(p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          statObs.unobserve(el);
+        }
+      });
+    }, {threshold:.6});
+    statObs.observe(el);
+  });
+
+  /* ---------- Clube Amplitude: marquee de parceiros ---------- */
+  const clubeMarqueeTrack = document.getElementById('clubeMarqueeTrack');
+  if(clubeMarqueeTrack){
+    const parceiros = [
+      'Americanas','Magazine Luiza','Casas Bahia','Alimentação','Viagens e Turismo',
+      'Educação','Saúde e Bem-estar','Moda e Beleza','Tecnologia','Pet Shop',
+      'Cinema e Lazer','Farmácias'
+    ];
+    const pillsHtml = parceiros.map(p => `<span class="clube-marquee-pill"><span class="material-symbols-rounded">sell</span>${p}</span>`).join('');
+    clubeMarqueeTrack.innerHTML = pillsHtml + pillsHtml;
+  }
+
   /* ---------- Active nav on scroll ---------- */
   const sections = ['heroSection','sobre','planos','rede','telemedicina','faq'].map(id => document.getElementById(id)).filter(Boolean);
   const navA = document.querySelectorAll('.nav-links a');
