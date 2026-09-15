@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ext = { natura:'jpg', cineart:'jpg', 'lojas-americanas':'jpg', kinoplex:'jpg', amazon:'jpg', moviecom:'jpg', cinesystem:'jpg', rayban:'jpg', polishop:'jpg' };
     const tilesHtml = parceiros.map(([slug, nome]) => {
       const fileExt = ext[slug] || 'png';
-      return `<span class="clube-marquee-pill"><img src="img/clube-parceiros/${slug}.${fileExt}" alt="${nome}" loading="lazy"></span>`;
+      return `<span class="clube-marquee-pill"><img src="img/clube-parceiros/${slug}.${fileExt}" alt="${nome}"></span>`;
     }).join('');
     clubeMarqueeTrack.innerHTML = tilesHtml + tilesHtml;
   }
