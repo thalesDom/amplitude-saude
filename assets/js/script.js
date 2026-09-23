@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const backToTop = document.getElementById('backToTop');
   const themeToggleFloat = document.querySelector('.theme-toggle-float');
 
+  const whatsappFloatEl = document.querySelector('.whatsapp-float');
+  const siteFooterEl = document.querySelector('.footer-bottom');
   function onScroll(){
     const h = document.documentElement;
     const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
@@ -40,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const backVisible = h.scrollTop > 600;
     backToTop.classList.toggle('show', backVisible);
     if(themeToggleFloat) themeToggleFloat.classList.toggle('up', backVisible);
+    if(whatsappFloatEl && siteFooterEl){
+      const overlap = window.innerHeight - siteFooterEl.getBoundingClientRect().top;
+      whatsappFloatEl.style.bottom = overlap > 0 ? (Math.min(overlap, 160) + 28) + 'px' : '';
+    }
   }
   document.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
