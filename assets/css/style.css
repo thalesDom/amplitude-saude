@@ -17,6 +17,7 @@
   --teal-500:#16BFB2;
   --teal-400:#3FD4C6;
   --teal-100:#E3F8F5;
+  --eyebrow-fg:#0C7A70;
 
   --gold:#16BFB2;
 
@@ -270,7 +271,7 @@ body.is-loading{overflow:hidden;}
 /* ===================== SECTION HEAD ===================== */
 .section-head{max-width:640px;margin-bottom:50px;}
 .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
-.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-600);background:var(--teal-100);padding:6px 14px;border-radius:var(--radius-full);margin-bottom:16px;}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--eyebrow-fg);background:var(--teal-100);padding:6px 14px;border-radius:var(--radius-full);margin-bottom:16px;}
 .section-head h2{font-size:clamp(1.7rem,3vw,2.35rem);letter-spacing:-.01em;}
 .section-sub{color:var(--muted);margin-top:12px;font-size:1rem;}
 .pricing-disclaimer{max-width:760px;margin:32px auto 0;text-align:center;font-size:.8rem;line-height:1.6;color:var(--muted);}
