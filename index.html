@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-50..200" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=59">
+<link rel="stylesheet" href="assets/css/style.css?v=60">
 <link rel="icon" type="image/png" href="assets/img/brand/logo-icon.png">
 </head>
 <body class="is-loading">
@@ -87,6 +87,10 @@
         <div class="hero-cta-row">
           <a href="#planos" class="btn btn-teal btn-lg">Conheça nossos planos</a>
           <div class="hero-counter">
+            <button type="button" class="hero-pause" id="heroPauseBtn" aria-label="Pausar apresentação automática" aria-pressed="false">
+              <span class="material-symbols-rounded icon-pause">pause</span>
+              <span class="material-symbols-rounded icon-play">play_arrow</span>
+            </button>
             <span id="heroCount">01/07</span>
             <span class="track"><span id="heroTrack"></span></span>
           </div>
@@ -184,7 +188,7 @@
       </div>
 
       <div class="why-row reveal">
-        <div class="why-photo"><div class="photo-real"><video src="img/why-humanizado.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="why-photo"><div class="photo-real"><video src="img/why-humanizado.mp4" poster="img/why-humanizado-poster.jpg" autoplay loop muted playsinline></video></div></div>
         <div class="why-copy">
           <h3><span class="why-num">03</span> Atendimento próximo e humanizado</h3>
           <p>Aqui, cada beneficiário importa. Trabalhamos para construir relações mais próximas, com atendimento que valoriza agilidade, atenção e respeito.</p>
@@ -202,7 +206,7 @@
       </div>
 
       <div class="why-row reveal">
-        <div class="why-photo"><div class="photo-real"><video src="img/why-empresas.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="why-photo"><div class="photo-real"><video src="img/why-empresas.mp4" poster="img/why-empresas-poster.jpg" autoplay loop muted playsinline></video></div></div>
         <div class="why-copy">
           <h3><span class="why-num">05</span> Soluções para empresas, associações, sindicatos, órgãos públicos e projetos especiais</h3>
           <p>Planos empresariais desenvolvidos para organizações que desejam oferecer saúde e segurança aos seus colaboradores e transformar o benefício em uma ferramenta de valorização de pessoas.</p>
@@ -211,7 +215,7 @@
       </div>
 
       <div class="why-row reverse reveal">
-        <div class="why-photo"><div class="photo-real"><video src="img/why-tecnologia.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="why-photo"><div class="photo-real"><video src="img/why-tecnologia.mp4" poster="img/why-tecnologia-poster.jpg" autoplay loop muted playsinline></video></div></div>
         <div class="why-copy">
           <h3><span class="why-num">06</span> Tecnologia a serviço da saúde</h3>
           <p>Utilizamos e investimos em recursos digitais para tornar a experiência mais simples, moderna e eficiente, facilitando a jornada do beneficiário e sua relação com o plano.</p>
@@ -220,7 +224,7 @@
       </div>
 
       <div class="why-row reveal">
-        <div class="why-photo"><div class="photo-real"><video src="img/why-perfis.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="why-photo"><div class="photo-real"><video src="img/why-perfis.mp4" poster="img/why-perfis-poster.jpg" autoplay loop muted playsinline></video></div></div>
         <div class="why-copy">
           <h3><span class="why-num">07</span> Opções para diferentes perfis</h3>
           <p>Cada empresa e cada beneficiário têm necessidades diferentes. Por isso, buscamos oferecer alternativas que permitam encontrar a combinação adequada entre cobertura, acomodação e características de contratação.</p>
@@ -229,7 +233,7 @@
       </div>
 
       <div class="why-row reverse reveal">
-        <div class="why-photo"><div class="photo-real"><video src="img/why-regional.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="why-photo"><div class="photo-real"><video src="img/why-regional.mp4" poster="img/why-regional-poster.jpg" autoplay loop muted playsinline></video></div></div>
         <div class="why-copy">
           <h3><span class="why-num">08</span> Valorização da saúde regional</h3>
           <p>Acreditamos na força da medicina sergipana, com os bons profissionais e prestadores de mercado. Construir uma rede regional também significa fortalecer hospitais, clínicas, laboratórios e profissionais que fazem parte da saúde do nosso estado.</p>
@@ -280,16 +284,16 @@
         <h2>Conheça o <span class="text-teal">aplicativo</span> da Amplitude</h2>
         <p>Criado para resolver suas maiores dificuldades com plano de saúde, o app Amplitude reúne tudo num só lugar: agendamento de consultas e exames, acesso a resultados e laudos, autorizações digitais instantâneas e acompanhamento de solicitações — sem burocracia e sem longas esperas.</p>
         <p>Levamos o cuidado com você para onde você estiver, com a mesma praticidade que você já tem em outros apps do dia a dia. O futuro da saúde chegou — e já está no seu bolso.</p>
-        <a href="#" class="app-promo-download"><span class="material-symbols-rounded">download</span> Clique para baixar</a>
+        <span class="app-promo-download app-promo-soon"><span class="material-symbols-rounded">schedule</span> Em breve nas lojas</span>
         <div class="app-promo-stores">
-          <a href="#" class="store-badge">
+          <span class="store-badge store-badge-soon" aria-disabled="true">
             <svg class="store-badge-icon" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-            <span><small>Disponível na</small><strong>App Store</strong></span>
-          </a>
-          <a href="#" class="store-badge">
+            <span><small>Em breve na</small><strong>App Store</strong></span>
+          </span>
+          <span class="store-badge store-badge-soon" aria-disabled="true">
             <svg class="store-badge-icon" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00D4FF" d="M99 48.7C91 55 86 65 86 78v356c0 13 5 23 13.3 29.3l211-211.5z"/><path fill="#00F076" d="M99 48.7L310 260 375 195z"/><path fill="#FF3A44" d="M99 463.3L375 325 310 260z"/><path fill="#FFCF00" d="M375 195l-65 65 65 65 88-44.4c22-11.2 22-40 0-51.2z"/></svg>
-            <span><small>Disponível no</small><strong>Google Play</strong></span>
-          </a>
+            <span><small>Em breve no</small><strong>Google Play</strong></span>
+          </span>
         </div>
       </div>
     </div>
@@ -423,6 +427,8 @@
         </div>
       </div>
 
+      <p class="pricing-disclaimer">*Carências, coberturas e condições comerciais seguem a regulamentação vigente da ANS (RN nº 438/2018 e alterações posteriores) e estão sujeitas a análise e aprovação. Urgências e emergências têm cobertura garantida em até 24h após o início da vigência do contrato. Consulte as condições completas no momento da contratação.</p>
+
     </div>
   </section>
 
@@ -433,9 +439,27 @@
         <div class="lead-strip-grid"></div>
         <div class="lead-strip-blob"></div>
         <h2>Deseja encontrar o plano ideal?</h2>
-        <form class="lead-form" id="leadForm" novalidate>
-          <input type="text" id="leadNome" name="nome" placeholder="Seu nome" required>
-          <input type="tel" id="leadWhats" name="whatsapp" placeholder="Seu WhatsApp" required>
+        <form class="lead-form lead-form-grid" id="leadForm" novalidate>
+          <div class="lead-form-row">
+            <input type="text" id="leadNome" name="nome" placeholder="Seu nome" required>
+            <input type="email" id="leadEmail" name="email" placeholder="Seu e-mail" required>
+          </div>
+          <div class="lead-form-row">
+            <input type="tel" id="leadWhats" name="whatsapp" placeholder="Seu WhatsApp" required>
+            <select id="leadTipoPlano" name="tipoPlano" required>
+              <option value="" disabled selected>Tipo de plano</option>
+              <option value="Individual/Familiar">Individual / Familiar</option>
+              <option value="PME (2 a 29 vidas)">PME (2 a 29 vidas)</option>
+              <option value="Empresarial (30+ vidas)">Empresarial (30+ vidas)</option>
+            </select>
+          </div>
+          <div class="lead-form-row">
+            <input type="number" id="leadNumeroVidas" name="numeroVidas" placeholder="Número de vidas" min="1">
+          </div>
+          <label class="lead-form-lgpd">
+            <input type="checkbox" id="leadLgpd" name="lgpdAceite" required>
+            <span>Concordo com o uso dos meus dados para contato, conforme a <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.</span>
+          </label>
           <button type="submit" class="btn btn-teal">Enviar</button>
         </form>
         <p class="lead-form-success" id="leadFormSuccess">Recebemos seu contato! Nosso time responde em breve pelo WhatsApp. 🎉</p>
@@ -542,6 +566,6 @@
 </div>
 
 <script src="assets/js/admin-config.js"></script>
-<script src="assets/js/script.js?v=25"></script>
+<script src="assets/js/script.js?v=26"></script>
 </body>
 </html>

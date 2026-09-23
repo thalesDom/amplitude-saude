@@ -13,6 +13,19 @@ window.addEventListener('load', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------- Floating WhatsApp button ---------- */
+  if(!document.querySelector('.whatsapp-float')){
+    const waMsg = encodeURIComponent('Olá! Vim pelo site da Amplitude Saúde e gostaria de mais informações.');
+    const waLink = document.createElement('a');
+    waLink.href = 'https://wa.me/557999028529?text=' + waMsg;
+    waLink.target = '_blank';
+    waLink.rel = 'noopener';
+    waLink.className = 'whatsapp-float';
+    waLink.setAttribute('aria-label', 'Falar no WhatsApp');
+    waLink.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.35a9.85 9.85 0 0 0 4.62 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.44 17.5 2 12.04 2Zm5.6 13.96c-.24.66-1.38 1.27-1.9 1.34-.49.07-1.1.1-1.78-.11-.41-.13-.94-.3-1.62-.58-2.86-1.23-4.73-4.1-4.87-4.29-.14-.19-1.16-1.55-1.16-2.95 0-1.41.73-2.1.99-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.17.01.41-.07.64.49.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.28.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.33 1.44.28.14.44.12.61-.07.17-.19.71-.83.9-1.11.19-.28.38-.24.63-.14.26.09 1.65.78 1.93.92.28.14.47.21.53.33.07.12.07.7-.17 1.36Z"/></svg>';
+    document.body.appendChild(waLink);
+  }
+
   /* ---------- Scroll progress bar ---------- */
   const progress = document.getElementById('scrollProgress');
   const navbar = document.getElementById('navbar');
@@ -149,10 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroCount = document.getElementById('heroCount');
   const heroTrack = document.getElementById('heroTrack');
   const heroDots = document.getElementById('heroDots');
+  const heroPauseBtn = document.getElementById('heroPauseBtn');
   let heroIndex = 0;
   const heroTotal = slides.length;
   const heroDuration = 6000;
   let heroTimer, trackTimer;
+  let heroPaused = false;
+  let heroElapsed = 0;
+  let heroTickStart = 0;
 
   if(heroTotal){
   slides.forEach((s, i) => {
@@ -191,10 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startTrack(){
     clearInterval(trackTimer);
-    let pct = 0;
-    heroTrack.style.width = '0%';
+    if(heroPaused) return;
+    heroTickStart = performance.now();
     trackTimer = setInterval(() => {
-      pct += 100 / (heroDuration / 50);
+      const pct = (heroElapsed + (performance.now() - heroTickStart)) / heroDuration * 100;
       heroTrack.style.width = Math.min(pct, 100) + '%';
     }, 50);
   }
@@ -207,8 +224,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resetHeroTimer(){
     clearTimeout(heroTimer);
+    clearInterval(trackTimer);
+    heroElapsed = 0;
+    heroTrack.style.width = '0%';
+    if(heroPaused) return;
     startTrack();
     heroTimer = setTimeout(() => goToSlide(heroIndex + 1), heroDuration);
+  }
+
+  if(heroPauseBtn){
+    heroPauseBtn.addEventListener('click', () => {
+      heroPaused = !heroPaused;
+      heroPauseBtn.classList.toggle('is-paused', heroPaused);
+      heroPauseBtn.setAttribute('aria-pressed', String(heroPaused));
+      heroPauseBtn.setAttribute('aria-label', heroPaused ? 'Retomar apresentação automática' : 'Pausar apresentação automática');
+      if(heroPaused){
+        clearTimeout(heroTimer);
+        clearInterval(trackTimer);
+        heroElapsed += performance.now() - heroTickStart;
+      } else {
+        startTrack();
+        const remaining = Math.max(heroDuration - heroElapsed, 0);
+        heroTimer = setTimeout(() => goToSlide(heroIndex + 1), remaining);
+      }
+    });
   }
 
   renderHero(0);
@@ -287,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
           countObserver.unobserve(el);
         }
       });
-    }, {threshold:.6});
+    }, {threshold:.3});
     countEls.forEach(el => countObserver.observe(el));
   }
 
@@ -388,7 +427,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if(!leadForm.checkValidity()){ leadForm.reportValidity(); return; }
       const submitBtn = leadForm.querySelector('button[type="submit"]');
       const nome = document.getElementById('leadNome').value.trim();
+      const email = document.getElementById('leadEmail').value.trim();
       const whatsapp = document.getElementById('leadWhats').value.trim();
+      const tipoPlano = document.getElementById('leadTipoPlano').value;
+      const numeroVidas = document.getElementById('leadNumeroVidas').value.trim();
+      const lgpdAceite = document.getElementById('leadLgpd').checked;
       const adminUrl = window.AMPLITUDE_ADMIN_URL;
       if(submitBtn) submitBtn.disabled = true;
       try{
@@ -396,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
           await fetch(adminUrl + '/api/lead.php', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({nome, whatsapp})
+            body: JSON.stringify({nome, email, whatsapp, tipoPlano, numeroVidas, lgpdAceite})
           });
         }
       }catch(err){ /* segue mostrando sucesso ao usuário mesmo se a área restrita estiver fora do ar */ }
