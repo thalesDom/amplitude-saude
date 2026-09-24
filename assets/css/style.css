@@ -759,14 +759,16 @@ body.is-loading{overflow:hidden;}
 .socials svg{width:18px;height:18px;}
 .ans-logo{
   display:flex;align-items:center;justify-content:center;width:150px;margin-top:20px;padding:8px 0;
-  background:#fff;border-radius:10px;
+  background:#fff;border-radius:10px;transition:transform .2s,box-shadow .2s;
 }
 .ans-logo img{display:block;height:30px;width:auto;}
+.ans-logo:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25);}
 .ans-badge{
   display:flex;align-items:center;justify-content:center;width:150px;margin-top:10px;padding:6px 4px;
   background:#000;color:#fff;font-weight:800;font-size:.72rem;letter-spacing:.01em;
-  border:1px solid #fff;box-shadow:0 0 0 3px #000;box-sizing:border-box;
+  border:1px solid #fff;box-shadow:0 0 0 3px #000;box-sizing:border-box;transition:opacity .2s;
 }
+.ans-badge:hover{opacity:.8;}
 .footer-col h4{position:relative;color:#fff;font-size:.95rem;margin-bottom:22px;padding-bottom:12px;}
 .footer-col h4::after{content:'';position:absolute;left:0;bottom:0;width:28px;height:2px;background:var(--teal-500);border-radius:2px;}
 .footer-col{display:flex;flex-direction:column;gap:13px;font-size:.88rem;}
