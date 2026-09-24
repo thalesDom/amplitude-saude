@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Floating WhatsApp button ---------- */
   if(!document.querySelector('.whatsapp-float')){
-    const waMsg = encodeURIComponent('Olá! Vim pelo site da Amplitude Saúde e gostaria de mais informações.');
+    const waMsg = encodeURIComponent('Olá! Gostaria de cotar um plano de saúde Amplitude.');
     const waLink = document.createElement('a');
     waLink.href = 'https://wa.me/557999028529?text=' + waMsg;
     waLink.target = '_blank';
