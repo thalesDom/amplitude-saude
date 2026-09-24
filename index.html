@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-50..200" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=68">
+<link rel="stylesheet" href="assets/css/style.css?v=69">
 <link rel="icon" type="image/webp" href="assets/img/brand/logo-icon.webp">
 </head>
 <body class="is-loading">
@@ -285,6 +285,14 @@
         <p>Criado para resolver suas maiores dificuldades com plano de saúde, o app Amplitude reúne tudo num só lugar: agendamento de consultas e exames, acesso a resultados e laudos, autorizações digitais instantâneas e acompanhamento de solicitações — sem burocracia e sem longas esperas.</p>
         <p>Levamos o cuidado com você para onde você estiver, com a mesma praticidade que você já tem em outros apps do dia a dia. O futuro da saúde chegou — e já está no seu bolso.</p>
         <span class="app-promo-download app-promo-soon"><span class="material-symbols-rounded">schedule</span> Em breve nas lojas</span>
+        <form class="app-notify-form" id="appNotifyForm" novalidate>
+          <label for="appNotifyEmail">Cadastre-se para ser notificado do lançamento</label>
+          <div class="app-notify-row">
+            <input type="email" id="appNotifyEmail" name="email" placeholder="Seu melhor e-mail" required>
+            <button type="submit" class="btn btn-teal btn-sm">Avisar-me</button>
+          </div>
+          <p class="app-notify-success" id="appNotifySuccess">Prontinho! Você será avisado assim que o app for lançado. 🎉</p>
+        </form>
         <div class="app-promo-stores">
           <span class="store-badge store-badge-soon" aria-disabled="true">
             <svg class="store-badge-icon" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
@@ -402,13 +410,12 @@
         <div class="price-card featured">
           <span class="ribbon">Mais escolhido</span>
           <div class="price-top"><div class="price-icon"><span class="material-symbols-rounded">diversity_1</span></div></div>
-          <h3>PME a partir de 02 a 29 vidas</h3>
+          <h3>PME de 02 a 29 vidas</h3>
           <p class="price-tag">Mensalidade por grupo para pequenas e médias empresas.</p>
           <ul class="price-list">
-            <li><span class="material-symbols-rounded ok">check_circle</span> Mensalidade reduzida por adesão em grupo</li>
-            <li><span class="material-symbols-rounded ok">check_circle</span> Condições de carência facilitadas</li>
-            <li><span class="material-symbols-rounded ok">check_circle</span> Extensível a dependentes dos colaboradores</li>
-            <li><span class="material-symbols-rounded ok">check_circle</span> Adesão a partir de 2 vidas</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Coparticipação reduzida</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Carências diferenciadas para empresas</li>
+            <li><span class="material-symbols-rounded ok">check_circle</span> Inclusão de dependentes dos colaboradores</li>
           </ul>
           <a href="#contato" class="btn btn-navy">Escolher plano</a>
         </div>
@@ -448,7 +455,8 @@
             <input type="tel" id="leadWhats" name="whatsapp" placeholder="Seu WhatsApp" required>
             <select id="leadTipoPlano" name="tipoPlano" required>
               <option value="" disabled selected>Tipo de plano</option>
-              <option value="Individual/Familiar">Individual / Familiar</option>
+              <option value="Individual">Individual</option>
+              <option value="Familiar">Familiar</option>
               <option value="PME (2 a 29 vidas)">PME (2 a 29 vidas)</option>
               <option value="Empresarial (30+ vidas)">Empresarial (30+ vidas)</option>
             </select>
@@ -566,6 +574,6 @@
 </div>
 
 <script src="assets/js/admin-config.js"></script>
-<script src="assets/js/script.js?v=31"></script>
+<script src="assets/js/script.js?v=32"></script>
 </body>
 </html>

@@ -458,6 +458,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- App launch notify form ---------- */
+  const appNotifyForm = document.getElementById('appNotifyForm');
+  const appNotifySuccess = document.getElementById('appNotifySuccess');
+  if(appNotifyForm){
+    appNotifyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if(!appNotifyForm.checkValidity()){ appNotifyForm.reportValidity(); return; }
+      const submitBtn = appNotifyForm.querySelector('button[type="submit"]');
+      const email = document.getElementById('appNotifyEmail').value.trim();
+      const adminUrl = window.AMPLITUDE_ADMIN_URL;
+      if(submitBtn) submitBtn.disabled = true;
+      try{
+        if(adminUrl && !adminUrl.includes('SEU-DOMINIO-AQUI')){
+          await fetch(adminUrl + '/api/app-notify.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email})
+          });
+        }
+      }catch(err){ /* segue mostrando sucesso mesmo se a área restrita estiver fora do ar */ }
+      appNotifySuccess.classList.add('show');
+      appNotifyForm.reset();
+      if(submitBtn) submitBtn.disabled = false;
+      setTimeout(() => appNotifySuccess.classList.remove('show'), 5000);
+    });
+  }
+
   /* ---------- Animated community stat ---------- */
   const communityStat = document.getElementById('communityStat');
   if(communityStat){
