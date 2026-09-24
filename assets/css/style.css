@@ -110,7 +110,7 @@ body.is-loading{overflow:hidden;}
   transition:.3s cubic-bezier(.2,.8,.2,1);white-space:nowrap;
 }
 .btn .material-symbols-rounded{font-size:20px;}
-.btn-teal{background:var(--grad-teal);color:var(--navy-900);box-shadow:var(--shadow-teal);}
+.btn-teal{background:var(--grad-teal);color:#fff;box-shadow:var(--shadow-teal);}
 .btn-teal:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(22,191,178,.4);}
 .btn-navy{background:var(--grad-navy);color:#fff;box-shadow:var(--shadow-navy);}
 .btn-navy:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(23,58,99,.35);}
