@@ -863,6 +863,10 @@ body.is-loading{overflow:hidden;}
 .mv-card ul{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;}
 .mv-card ul li{display:flex;align-items:flex-start;gap:8px;color:var(--muted);font-size:.9rem;}
 .mv-card ul .material-symbols-rounded{color:var(--teal-600);font-size:18px;flex-shrink:0;margin-top:1px;}
+.mv-values-list{gap:14px;}
+.mv-values-list li{line-height:1.5;}
+.mv-value-emoji{font-size:16px;flex-shrink:0;margin-top:1px;line-height:1.5;}
+.mv-values-list strong{color:var(--ink);}
 @media(max-width:860px){.mv-grid{grid-template-columns:1fr;}}
 
 /* ===================== ABOUT PAGE: numbers band ===================== */
