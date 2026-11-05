@@ -758,10 +758,10 @@ body.is-loading{overflow:hidden;}
 .socials a:hover{color:#fff;}
 .socials svg{width:18px;height:18px;}
 .ans-logo{
-  display:flex;align-items:center;justify-content:center;width:150px;margin-top:20px;padding:4px;
-  background:#fff;border-radius:10px;transition:transform .2s,box-shadow .2s;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;width:130px;margin-top:20px;padding:0;
+  background:#fff;border-radius:8px;transition:transform .2s,box-shadow .2s;overflow:hidden;
 }
-.ans-logo img{display:block;width:100%;height:auto;}
+.ans-logo img{display:block;width:100%;height:auto;image-rendering:-webkit-optimize-contrast;}
 .ans-logo:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25);}
 .ans-badge{
   display:flex;align-items:center;justify-content:center;width:150px;margin-top:10px;padding:6px 4px;
