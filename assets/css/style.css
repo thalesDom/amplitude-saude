@@ -206,7 +206,7 @@ body.is-loading{overflow:hidden;}
 .hero-slide .art-icon{right:2%;font-size:min(42vw,460px);}
 .hero-slide::before{
   content:'';position:absolute;inset:0;z-index:1;
-  background:linear-gradient(100deg, rgba(12,26,43,.62) 0%, rgba(12,26,43,.45) 20%, rgba(12,26,43,.14) 36%, rgba(12,26,43,0) 48%);
+  background:linear-gradient(100deg, rgba(12,26,43,.6) 0%, rgba(12,26,43,.42) 18%, rgba(12,26,43,.12) 32%, rgba(12,26,43,0) 44%);
 }
 .hero-inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-bottom:100px;}
 .hero-copy{max-width:540px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.3);}
@@ -872,6 +872,38 @@ body.is-loading{overflow:hidden;}
 }
 .mv-value-card h4{font-size:1rem;margin-bottom:8px;}
 .mv-value-card p{color:var(--muted);font-size:.88rem;line-height:1.55;}
+
+/* ===================== TRABALHE CONOSCO: culture cards ===================== */
+.culture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;align-items:stretch;}
+.culture-card{position:relative;overflow:hidden;background:#fff;border-radius:var(--radius-lg);padding:34px 30px;box-shadow:var(--shadow-sm);transition:.4s cubic-bezier(.2,.8,.2,1);}
+.culture-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+.culture-card.card-navy{background:var(--grad-navy);box-shadow:0 20px 44px rgba(12,26,43,.32);}
+.culture-card.card-teal{background:var(--grad-teal);box-shadow:0 20px 44px rgba(22,191,178,.36);}
+.culture-card.card-white{border:1px solid var(--line);}
+.culture-card.card-navy::before,.culture-card.card-teal::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.16) 1.5px,transparent 1.5px);
+  background-size:18px 18px;mask-image:radial-gradient(ellipse at 85% 15%, black 0%, transparent 60%);
+}
+.culture-card.card-navy h3,.culture-card.card-navy p,.culture-card.card-teal h3,.culture-card.card-teal p{color:#fff;position:relative;z-index:1;}
+.culture-card.card-navy p{color:rgba(255,255,255,.75);}
+.culture-card.card-teal p{color:rgba(255,255,255,.92);}
+.culture-icon{
+  position:relative;z-index:1;width:52px;height:52px;border-radius:14px;background:var(--teal-100);color:var(--teal-600);
+  display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;
+}
+.culture-card.card-navy .culture-icon,.culture-card.card-teal .culture-icon{
+  background:linear-gradient(155deg, rgba(255,255,255,.32), rgba(255,255,255,.12));
+  color:#fff;border:1px solid rgba(255,255,255,.35);box-shadow:0 8px 18px rgba(0,0,0,.14);
+}
+.culture-card.card-white .culture-icon{box-shadow:0 0 0 6px rgba(22,191,178,.08);}
+.culture-card h3{position:relative;z-index:1;font-size:1.15rem;margin-bottom:12px;}
+.culture-card p{position:relative;z-index:1;color:var(--muted);font-size:.92rem;}
+.culture-card ul{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;}
+.culture-card ul li{display:flex;align-items:flex-start;gap:8px;color:var(--muted);font-size:.9rem;}
+.culture-card ul .material-symbols-rounded{color:var(--teal-600);font-size:18px;flex-shrink:0;margin-top:1px;}
+@media(max-width:860px){.culture-grid{grid-template-columns:1fr;}}
+:root[data-theme="dark"] .culture-card.card-white{background:var(--bg-soft);border-color:var(--line);}
 
 /* ===================== ABOUT PAGE: numbers band ===================== */
 .numbers-band{padding:80px 0;background:var(--grad-navy);position:relative;overflow:hidden;}

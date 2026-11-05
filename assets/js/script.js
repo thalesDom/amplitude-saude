@@ -161,6 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, {threshold:.12, rootMargin:'0px 0px -60px 0px'});
   revealEls.forEach(el => revealObserver.observe(el));
+  // safety net: an instant scroll jump (hash link on load, back/forward restore) can skip every
+  // intermediate frame and never fire the observer, leaving content stuck invisible — force it
+  // visible after a few seconds no matter what.
+  setTimeout(() => revealEls.forEach(el => el.classList.add('in')), 4000);
 
   /* ---------- Hero carousel ---------- */
   const slides = Array.from(document.querySelectorAll('.hero-slide'));
