@@ -233,7 +233,7 @@ body.is-loading{overflow:hidden;}
   display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);
   padding:7px 16px;border-radius:var(--radius-full);font-size:.8rem;font-weight:500;margin-bottom:20px;backdrop-filter:blur(6px);
 }
-.hero-copy h1{font-size:clamp(2.2rem,4.6vw,3.4rem);color:#fff;margin-bottom:16px;letter-spacing:-.01em;}
+.hero-copy h1{font-size:clamp(2.2rem,4.6vw,3.4rem);color:#fff;margin-bottom:16px;letter-spacing:-.01em;text-wrap:balance;}
 .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.82);margin-bottom:30px;max-width:520px;}
 .hero-cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
 
