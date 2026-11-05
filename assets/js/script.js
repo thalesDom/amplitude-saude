@@ -340,6 +340,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, {threshold:.3});
     countEls.forEach(el => countObserver.observe(el));
+    // safety net: force the final value if the observer never fired (see reveal note above)
+    setTimeout(() => {
+      countEls.forEach(el => {
+        if(el.textContent.trim() === '0'){
+          el.textContent = parseFloat(el.dataset.count).toLocaleString('pt-BR') + (el.dataset.suffix || '');
+        }
+      });
+    }, 4000);
   }
 
   /* ---------- FAQ accordion ---------- */
@@ -532,6 +540,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, {threshold:.6});
     statObs.observe(el);
+    // safety net: force the final value if the observer never fired (see reveal note above)
+    setTimeout(() => {
+      if(el.textContent.trim() === '0'){
+        el.textContent = (Number.isInteger(target) ? target : target.toFixed(1)) + suffix;
+      }
+    }, 4000);
   });
 
   /* ---------- Clube Amplitude: marquee de parceiros ---------- */
