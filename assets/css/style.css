@@ -206,10 +206,10 @@ body.is-loading{overflow:hidden;}
 .hero-slide .art-icon{right:2%;font-size:min(42vw,460px);}
 .hero-slide::before{
   content:'';position:absolute;inset:0;z-index:1;
-  background:linear-gradient(100deg, rgba(12,26,43,.58) 0%, rgba(12,26,43,.4) 18%, rgba(12,26,43,.1) 32%, rgba(12,26,43,0) 42%);
+  background:linear-gradient(100deg, rgba(12,26,43,.62) 0%, rgba(12,26,43,.45) 20%, rgba(12,26,43,.14) 36%, rgba(12,26,43,0) 48%);
 }
 .hero-inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-bottom:100px;}
-.hero-copy{max-width:620px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.3);}
+.hero-copy{max-width:540px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.3);}
 
 /* ---- shared illustrated art panel ---- */
 .art-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;}
