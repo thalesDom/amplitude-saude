@@ -1348,3 +1348,21 @@ body.is-loading{overflow:hidden;}
 .hero-copy{text-shadow:0 2px 18px rgba(12,26,43,.35);}
 .hero-sub{color:rgba(255,255,255,.92);}
 @media(max-width:860px){.hero{background:linear-gradient(180deg,#a9bbd0 0%,#6f84a0 40%,#506580 100%);}}
+
+/* ===== HERO: fundo = cor real da borda esquerda de cada foto ===== */
+.hero-slide{background:linear-gradient(180deg,var(--bg1,#dde8f3),var(--bg2,var(--bg1,#eef3fc)));}
+.hero-slide::before{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(12,26,43,.58) 0%,rgba(12,26,43,.46) 22%,rgba(12,26,43,.14) 38%,rgba(12,26,43,0) 50%);
+}
+.hero-slide:nth-child(1){--bg1:#dde8f3;--bg2:#eef3fc;}
+.hero-slide:nth-child(2){--bg1:#f2f5fb;--bg2:#f2f5fb;}
+.hero-slide:nth-child(3){--bg1:#dbdfee;--bg2:#e6e7f0;}
+.hero-slide:nth-child(4){--bg1:#f0f1f7;--bg2:#e8edf6;}
+.hero-slide:nth-child(5){--bg1:#eeecf6;--bg2:#e5e7f4;}
+.hero-slide:nth-child(6){--bg1:#eff2fb;--bg2:#eff2fb;}
+.hero-slide:nth-child(7){--bg1:#e1eef9;--bg2:#e8f0fb;}
+@media(max-width:860px){
+  .hero-slide::before{background:linear-gradient(180deg,rgba(12,26,43,0) 55%,rgba(12,26,43,.25) 100%);}
+  .hero{background:linear-gradient(180deg,#8a9bb2 0%,#6a7d97 100%);}
+}
