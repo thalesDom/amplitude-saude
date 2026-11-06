@@ -285,7 +285,7 @@ body.is-loading{overflow:hidden;}
   .hero-copy h1{font-size:clamp(1.9rem,7vw,2.6rem);}
   .hero-sub{margin-bottom:24px;}
 }
-@media(max-width:480px){.hero-slides{aspect-ratio:1/1;}.hero-cta-row{gap:16px;}}
+@media(max-width:600px){.hero-slides{aspect-ratio:1/1;}.hero-inner{margin-top:-10px;}.hero-cta-row{gap:16px;}}
 
 /* ===================== SECTION HEAD ===================== */
 .section-head{max-width:640px;margin-bottom:50px;}
@@ -1342,3 +1342,9 @@ body.is-loading{overflow:hidden;}
 :root[data-theme="dark"] .clube-marquee-section{background:var(--bg-soft);}
 :root[data-theme="dark"] .clube-marquee-pill{background:var(--bg-soft-2);border-color:var(--line);color:#fff;}
 :root[data-theme="dark"] .clube-card{background:var(--bg-soft);border-color:var(--line);}
+
+/* ===== HERO: fundo cinza-azulado (cor original das artes) ===== */
+.hero{background:linear-gradient(115deg,#5d7088 0%,#7d91aa 38%,#aebfd3 70%,#cddbe9 100%);}
+.hero-copy{text-shadow:0 2px 18px rgba(12,26,43,.35);}
+.hero-sub{color:rgba(255,255,255,.92);}
+@media(max-width:860px){.hero{background:linear-gradient(180deg,#a9bbd0 0%,#6f84a0 40%,#506580 100%);}}
