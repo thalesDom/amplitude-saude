@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-50..200" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=97">
+<link rel="stylesheet" href="assets/css/style.css?v=99">
 <link rel="icon" type="image/webp" href="assets/img/brand/logo-icon.webp">
 </head>
 <body class="is-loading">
@@ -445,32 +445,43 @@
       <div class="lead-strip-inner reveal">
         <div class="lead-strip-grid"></div>
         <div class="lead-strip-blob"></div>
-        <h2>Deseja encontrar o plano ideal?</h2>
+        <div class="lead-copy">
+          <span class="lead-kicker">Fale com a gente</span>
+          <h2>Deseja encontrar o plano ideal?</h2>
+          <p class="lead-sub">Conte um pouco sobre você e nossa equipe monta a melhor proposta, direto no seu WhatsApp.</p>
+          <ul class="lead-perks">
+            <li><span class="material-symbols-rounded">bolt</span>Retorno rápido pelo WhatsApp</li>
+            <li><span class="material-symbols-rounded">family_restroom</span>Planos para você, sua família ou empresa</li>
+            <li><span class="material-symbols-rounded">verified_user</span>Sem compromisso e com dados protegidos</li>
+          </ul>
+        </div>
+        <div class="lead-panel">
         <form class="lead-form lead-form-grid" id="leadForm" novalidate>
-          <div class="lead-form-row">
-            <input type="text" id="leadNome" name="nome" placeholder="Seu nome" required>
-            <input type="email" id="leadEmail" name="email" placeholder="Seu e-mail" required>
+          <div class="lead-form-row lf-full">
+            <div class="lf-field"><span class="material-symbols-rounded lf-ic">person</span><input type="text" id="leadNome" name="nome" placeholder="Seu nome" autocomplete="name" required></div>
           </div>
           <div class="lead-form-row">
-            <input type="tel" id="leadWhats" name="whatsapp" placeholder="Seu WhatsApp" required>
-            <select id="leadTipoPlano" name="tipoPlano" required>
+            <div class="lf-field"><span class="material-symbols-rounded lf-ic">mail</span><input type="email" id="leadEmail" name="email" placeholder="Seu e-mail" autocomplete="email" required></div>
+            <div class="lf-field"><span class="material-symbols-rounded lf-ic">call</span><input type="tel" id="leadWhats" name="whatsapp" placeholder="Seu WhatsApp" autocomplete="off" required></div>
+          </div>
+          <div class="lead-form-row">
+            <div class="lf-field"><span class="material-symbols-rounded lf-ic">health_and_safety</span><select id="leadTipoPlano" name="tipoPlano" required>
               <option value="" disabled selected>Tipo de plano</option>
               <option value="Individual">Individual</option>
               <option value="Familiar">Familiar</option>
               <option value="PME (2 a 29 vidas)">PME (2 a 29 vidas)</option>
               <option value="Empresarial (30+ vidas)">Empresarial (30+ vidas)</option>
-            </select>
-          </div>
-          <div class="lead-form-row">
-            <input type="number" id="leadNumeroVidas" name="numeroVidas" placeholder="Número de vidas" min="1">
+            </select></div>
+            <div class="lf-field"><span class="material-symbols-rounded lf-ic">groups</span><input type="number" id="leadNumeroVidas" name="numeroVidas" placeholder="Número de vidas" min="1"></div>
           </div>
           <label class="lead-form-lgpd">
             <input type="checkbox" id="leadLgpd" name="lgpdAceite" required>
             <span>Concordo com o uso dos meus dados para contato, conforme a <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.</span>
           </label>
-          <button type="submit" class="btn btn-teal">Enviar</button>
+          <button type="submit" class="btn btn-teal">Enviar <span class="material-symbols-rounded">arrow_forward</span></button>
         </form>
         <p class="lead-form-success" id="leadFormSuccess">Recebemos seu contato! Nosso time responde em breve pelo WhatsApp. 🎉</p>
+        </div>
       </div>
     </div>
   </section>
