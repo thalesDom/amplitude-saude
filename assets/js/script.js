@@ -710,8 +710,6 @@ document.addEventListener('DOMContentLoaded', () => {
     c.addEventListener('pointermove',function(e){
       var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
       c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
-      c.style.setProperty('--ry',((x-.5)*9)+'deg');c.style.setProperty('--rx',((.5-y)*7)+'deg');
-    });
-    c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');});
-  });
+          });
+      });
 })();

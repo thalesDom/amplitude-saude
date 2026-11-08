@@ -1525,3 +1525,13 @@ body.is-loading{overflow:hidden;}
 @media(hover:none),(prefers-reduced-motion:reduce){.feature-card{transform:none !important;}}
 .features{margin-top:0;padding-top:56px;}
 @media(max-width:860px){.features{margin-top:0;padding-top:36px;}}
+
+/* v2 — limpo: sem inclinação 3D, sem números, só elevação e brilho suave */
+.features-grid{perspective:none;}
+.feature-card,.feature-card:hover{transform:none !important;transform-style:flat;will-change:auto;}
+.feature-card{transition:box-shadow .35s,translate .35s;}
+.feature-card:hover{translate:0 -8px;}
+.feature-card .feature-num{display:none;}
+.feature-icon,.feature-card h3{transform:none;}
+.feature-icon{width:64px;height:64px;margin-bottom:26px;}
+.feature-card{min-height:310px;padding:34px 32px 28px;}
