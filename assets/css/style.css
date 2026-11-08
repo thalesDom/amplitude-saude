@@ -1460,3 +1460,14 @@ body.is-loading{overflow:hidden;}
 .hero-card:nth-child(3) img,.hero-card:nth-child(7) img{height:114%;object-position:center top;transform-origin:top center;}
 @keyframes heroKen{from{transform:scale(1.06);}to{transform:scale(1);}}
 .hero-card:nth-child(4) img{height:114%;object-position:74% top;transform-origin:top center;}
+
+/* cartas laterais nunca invadem a coluna do texto (desktop) */
+@media(min-width:861px){
+  .hero-stage{
+    width:56%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,transparent 16%,#000 34%);
+    mask-image:linear-gradient(90deg,transparent 0,transparent 16%,#000 34%);
+  }
+  .hero-card{left:56%;}
+}
+.hero-card:nth-child(6) img{height:114%;object-position:center top;transform-origin:top center;}
