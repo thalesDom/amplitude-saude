@@ -1471,3 +1471,17 @@ body.is-loading{overflow:hidden;}
   .hero-card{left:56%;}
 }
 .hero-card:nth-child(6) img{height:114%;object-position:center top;transform-origin:top center;}
+
+/* 3 cartas sempre visíveis: esquerda, centro, direita */
+@media(min-width:861px){
+  .hero-stage{
+    width:60%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 14%);
+  }
+  .hero-card{
+    left:50%;height:min(70%,520px);
+    transform:translate(-50%,-50%) translate3d(calc(var(--d) * 54%),0,calc(var(--ad) * -170px)) rotateY(calc(var(--d) * -26deg)) scale(calc(1 - var(--ad) * .06));
+  }
+}
+.hero-card:nth-child(6) img{height:126%;}
