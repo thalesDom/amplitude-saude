@@ -207,6 +207,83 @@ document.addEventListener('DOMContentLoaded', () => {
     heroDots.appendChild(thumb);
   });
 
+  /* ---- Hero 3D: palco com cartas em perspectiva ---- */
+  const heroSection = document.getElementById('heroSection');
+  let heroCards = [];
+  if(heroSection){
+    const stage = document.createElement('div');
+    stage.className = 'hero-stage';
+    const ring = document.createElement('div');
+    ring.className = 'hero-ring';
+    heroCards = slides.map((s, i) => {
+      const img = s.querySelector('.art-img');
+      const mob = s.querySelector('source');
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'hero-card';
+      card.setAttribute('aria-label', 'Ir para: ' + (s.dataset.title || ('slide ' + (i + 1))));
+      const im = document.createElement('img');
+      im.src = mob ? mob.getAttribute('srcset') : img.getAttribute('src');
+      im.alt = img ? img.alt : '';
+      im.draggable = false;
+      if(!mob) im.style.objectPosition = '74% 50%';
+      if(i > 0) im.loading = 'lazy';
+      card.appendChild(im);
+      card.addEventListener('click', () => { if(i !== heroIndex) goToSlide(i); });
+      ring.appendChild(card);
+      return card;
+    });
+    stage.appendChild(ring);
+    const nav = document.createElement('div');
+    nav.className = 'hero-nav';
+    nav.innerHTML = '<button type="button" class="hero-arrow" data-dir="-1" aria-label="Slide anterior"><span class="material-symbols-rounded">arrow_back</span></button><button type="button" class="hero-arrow" data-dir="1" aria-label="Próximo slide"><span class="material-symbols-rounded">arrow_forward</span></button>';
+    nav.addEventListener('click', e => {
+      const b = e.target.closest('.hero-arrow');
+      if(b) goToSlide(heroIndex + Number(b.dataset.dir));
+    });
+    stage.appendChild(nav);
+    heroSection.appendChild(stage);
+
+    // inclinação 3D acompanhando o mouse
+    if(window.matchMedia('(hover:hover)').matches){
+      stage.addEventListener('pointermove', e => {
+        const r = stage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        ring.style.setProperty('--ry', (x * 10).toFixed(2) + 'deg');
+        ring.style.setProperty('--rx', (-y * 6).toFixed(2) + 'deg');
+      });
+      stage.addEventListener('pointerleave', () => {
+        ring.style.setProperty('--ry', '0deg');
+        ring.style.setProperty('--rx', '0deg');
+      });
+    }
+    // arrastar / deslizar
+    let sx = null;
+    stage.addEventListener('pointerdown', e => { sx = e.clientX; });
+    window.addEventListener('pointerup', e => {
+      if(sx === null) return;
+      const dx = e.clientX - sx; sx = null;
+      if(Math.abs(dx) > 50) goToSlide(heroIndex + (dx < 0 ? 1 : -1));
+    });
+  }
+
+  function layoutStage(i){
+    heroCards.forEach((c, k) => {
+      let d = k - i;
+      if(d > heroTotal / 2) d -= heroTotal;
+      if(d < -heroTotal / 2) d += heroTotal;
+      const ad = Math.abs(d);
+      c.style.setProperty('--d', d);
+      c.style.setProperty('--ad', ad);
+      c.style.zIndex = String(20 - ad);
+      c.style.opacity = ad > 2 ? '0' : String(1 - ad * .22);
+      c.style.pointerEvents = ad > 2 ? 'none' : 'auto';
+      c.classList.toggle('is-active', d === 0);
+      c.tabIndex = ad > 2 ? -1 : 0;
+    });
+  }
+
   function renderHero(i){
     const s = slides[i];
     slides.forEach(sl => sl.classList.remove('active'));
@@ -216,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     heroSub.textContent = s.dataset.sub;
     heroCount.textContent = String(i + 1).padStart(2, '0') + '/' + String(heroTotal).padStart(2, '0');
     heroDots.querySelectorAll('.hero-thumb').forEach((d, di) => d.classList.toggle('active', di === i));
+    layoutStage(i);
   }
 
   function startTrack(){

@@ -1384,3 +1384,79 @@ body.is-loading{overflow:hidden;}
   .hero-slide::before{background:linear-gradient(180deg,rgba(255,255,255,0) 60%,rgba(255,255,255,.9) 100%);}
   .hero-art{-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%);}
 }
+
+/* ======================================================================
+   HERO 3D — palco com cartas em perspectiva
+   ====================================================================== */
+.hero{
+  height:clamp(620px,46vw,780px);
+  background:
+    radial-gradient(46% 60% at 78% 42%,rgba(22,191,178,.16) 0%,transparent 70%),
+    radial-gradient(40% 55% at 95% 95%,rgba(31,111,235,.14) 0%,transparent 70%),
+    radial-gradient(35% 50% at 8% 90%,rgba(22,191,178,.10) 0%,transparent 70%),
+    linear-gradient(180deg,#ffffff 0%,#f3f8fd 100%);
+}
+.hero-slides,.hero-dots{display:none !important;}
+.hero-inner{max-width:none;margin:0;padding-left:clamp(24px,6vw,120px);padding-right:24px;width:46%;position:relative;z-index:3;}
+.hero-copy{max-width:560px;}
+
+.hero-stage{
+  position:absolute;top:0;bottom:0;right:0;width:58%;z-index:2;
+  perspective:1700px;perspective-origin:50% 42%;
+}
+.hero-stage::after{ /* sombra de chão sob as cartas */
+  content:'';position:absolute;left:50%;bottom:7%;width:62%;height:7%;transform:translateX(-50%);
+  background:radial-gradient(closest-side,rgba(12,26,43,.28),transparent);filter:blur(10px);pointer-events:none;
+}
+.hero-ring{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.hero-card{
+  --d:0;--ad:0;
+  position:absolute;left:50%;top:47%;height:min(78%,580px);aspect-ratio:3/4;margin:0;padding:0;border:0;
+  border-radius:26px;overflow:hidden;cursor:pointer;background:#dbe6f2;
+  transform:translate(-50%,-50%) translate3d(calc(var(--d) * 58%),0,calc(var(--ad) * -190px)) rotateY(calc(var(--d) * -30deg)) scale(calc(1 - var(--ad) * .06));
+  transition:transform .95s cubic-bezier(.22,.8,.2,1),opacity .6s ease,box-shadow .6s ease;
+  box-shadow:0 24px 50px -22px rgba(12,26,43,.5);
+  backface-visibility:hidden;-webkit-tap-highlight-color:transparent;
+}
+.hero-card img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block;user-select:none;-webkit-user-drag:none;}
+.hero-card::after{ /* escurece as cartas laterais e dá brilho de vidro */
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.28) 0%,transparent 38%),linear-gradient(180deg,transparent 60%,rgba(12,26,43,.22));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);
+  opacity:1;transition:opacity .6s;
+}
+.hero-card:not(.is-active)::before{content:'';position:absolute;inset:0;z-index:1;background:rgba(12,26,43,.22);border-radius:inherit;pointer-events:none;}
+.hero-card.is-active{box-shadow:0 50px 80px -28px rgba(12,26,43,.6),0 18px 30px -18px rgba(22,191,178,.35);cursor:default;}
+.hero-card.is-active img{animation:heroKen 9s ease-out forwards;}
+@keyframes heroKen{from{transform:scale(1.08);}to{transform:scale(1);}}
+.hero-card:focus-visible{outline:3px solid var(--teal-400);outline-offset:4px;}
+
+.hero-nav{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);display:flex;gap:12px;z-index:30;}
+.hero-arrow{
+  width:46px;height:46px;border-radius:50%;border:1px solid rgba(12,26,43,.12);cursor:pointer;
+  background:rgba(255,255,255,.8);backdrop-filter:blur(8px);color:var(--navy-900);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -8px rgba(12,26,43,.35);
+  transition:transform .2s,background .2s,color .2s;
+}
+.hero-arrow:hover{background:var(--teal-400);color:#fff;transform:translateY(-2px);}
+.hero-arrow .material-symbols-rounded{font-size:20px;}
+
+@media(max-width:1100px){.hero-card{height:min(74%,520px);}.hero-card{transform:translate(-50%,-50%) translate3d(calc(var(--d) * 56%),0,calc(var(--ad) * -170px)) rotateY(calc(var(--d) * -28deg)) scale(calc(1 - var(--ad) * .06));}}
+
+@media(max-width:860px){
+  .hero{height:auto;display:flex;flex-direction:column;padding-bottom:36px;}
+  .hero-stage{position:relative;width:100%;height:min(112vw,460px);flex:none;order:0;perspective:1100px;}
+  .hero-card{height:84%;top:48%;transform:translate(-50%,-50%) translate3d(calc(var(--d) * 62%),0,calc(var(--ad) * -130px)) rotateY(calc(var(--d) * -26deg)) scale(calc(1 - var(--ad) * .05));border-radius:20px;}
+  .hero-nav{bottom:0;}
+  .hero-inner{order:1;width:100%;padding:18px 24px 0;margin:0;height:auto;}
+  .hero-copy{max-width:640px;}
+  .hero-copy h1{font-size:clamp(1.9rem,7.4vw,2.6rem);}
+}
+@media(prefers-reduced-motion:reduce){.hero-card,.hero-ring{transition:none;}.hero-card.is-active img{animation:none;}}
+/* corta a faixa de ícones embutida em algumas artes */
+.hero-card:nth-child(3) img,.hero-card:nth-child(7) img{height:114%;object-position:center top;transform-origin:top center;}
+@keyframes heroKen{from{transform:scale(1.06);}to{transform:scale(1);}}
+.hero-card:nth-child(4) img{height:114%;object-position:74% top;transform-origin:top center;}
